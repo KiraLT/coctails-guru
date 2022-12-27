@@ -25,7 +25,7 @@ export function Layout({
             <Navbar expand="lg">
                 <Container fluid>
                     <Navbar.Brand>
-                        <Link href="/">
+                        <Link href="/" legacyBehavior>
                             <a>
                                 <Image src="/logo.png" alt="" width={200} height={59} />
                             </a>
@@ -38,7 +38,7 @@ export function Layout({
                             style={{ maxHeight: '100px', flexGrow: '1' }}
                             navbarScroll
                         >
-                            <Link href="/" passHref>
+                            <Link href="/" passHref legacyBehavior>
                                 <Nav.Link>
                                     Home
                                 </Nav.Link>
