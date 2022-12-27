@@ -1,5 +1,6 @@
 import * as z from 'zod'
 import slugify from 'slugify'
+import { titleCase } from 'common-stuff'
 
 import rawRecipes from '../public/recipes.yaml'
 
@@ -39,7 +40,7 @@ export class Recipe {
     }
 
     get name(): string {
-        return this.data.name.replace(/\b([a-z])/g, (_, v) => v.toUpperCase())
+        return titleCase(this.data.name)
     }
     
     get slug(): string {

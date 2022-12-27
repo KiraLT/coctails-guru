@@ -12,7 +12,7 @@ export function Recipes({
     {recipes.map((recipe) => (
       <Col key={recipe.id} xs={12} sm={6} md={4} >
         <div className="single-best-receipe-area mb-30" >
-          <Link href={recipe.url}>
+          <Link href={recipe.url} legacyBehavior>
             <a>
               <div style={{position: 'relative', height: '300px'}}>
                 <Image src={recipe.image} alt={recipe.name} layout='fill' objectFit='cover' />
