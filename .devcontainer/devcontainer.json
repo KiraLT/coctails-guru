@@ -3,5 +3,6 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {}
   },
-  "forwardPorts": [3000]
+  "forwardPorts": [3000],
+  "updateContentCommand": "npm install"
 }
