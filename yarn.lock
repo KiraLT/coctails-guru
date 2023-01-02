@@ -721,10 +721,10 @@ color-name@~1.1.4:
   resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
-common-stuff@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/common-stuff/-/common-stuff-1.6.1.tgz#65e4abefbc51732bd8660ce3c88289bd9ff4d276"
-  integrity sha512-gxZg0Mm3BvxoIhU3iXfv0yKZhcyMPutcctfkloyo1dyVXhrtu9QQDTmwBJJKZ7fsIl0hsktTsEaY8Oaqei3T3w==
+common-stuff@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/common-stuff/-/common-stuff-1.6.4.tgz#79b00249c0a53d4894057f0b290804c16852b793"
+  integrity sha512-KYrItWxo7Vsti2yryzLrJWOt6QAB8cFlxGX1Sp9Vz8ezYePRoDxu5XH8oV13F8BHYQ+WgKImqFBeEjFjESAudg==
 
 concat-map@0.0.1:
   version "0.0.1"
