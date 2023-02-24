@@ -75,12 +75,15 @@ const ListPage: NextPage = () => {
                         <Modal.Title>Edit</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <EditListPage list={list} onSave={v => {
-                            list.delete()
-                            v.save()
-                            router.replace(v.url)
-                            setEditOpen(false)
-                        }}/>
+                        <EditListPage
+                            list={list}
+                            onSave={(v) => {
+                                list.delete()
+                                v.save()
+                                router.replace(v.url)
+                                setEditOpen(false)
+                            }}
+                        />
                     </Modal.Body>
                 </Modal>
             </section>
@@ -88,7 +91,13 @@ const ListPage: NextPage = () => {
     )
 }
 
-function EditListPage({ list: originalList, onSave }: { list: List, onSave: (list: List) => void }) {
+function EditListPage({
+    list: originalList,
+    onSave,
+}: {
+    list: List
+    onSave: (list: List) => void
+}) {
     const [list, setList] = useState(originalList)
     const [addMode, setAddMode] = useState(false)
     const [query, setQuery] = useState('')
@@ -102,11 +111,12 @@ function EditListPage({ list: originalList, onSave }: { list: List, onSave: (lis
     }, [allRecipes])
 
     const recipes = useMemo(() => {
-        const result = query.trim() ? fuse.search(query).map((v) => v.item) : allRecipes
+        const result = query.trim()
+            ? fuse.search(query).map((v) => v.item)
+            : allRecipes
 
-        return result.filter(v => !list.recipes.find(r => v.id == r.id))
+        return result.filter((v) => !list.recipes.find((r) => v.id == r.id))
     }, [fuse, query, list, allRecipes])
-
 
     return (
         <>
@@ -114,7 +124,7 @@ function EditListPage({ list: originalList, onSave }: { list: List, onSave: (lis
                 type="text"
                 placeholder="Unnamed"
                 defaultValue={list.name}
-                onChange={event => setList(list.setName(event.target.value))}
+                onChange={(event) => setList(list.setName(event.target.value))}
                 className="mb-3"
             />
             {addMode ? (
@@ -136,12 +146,19 @@ function EditListPage({ list: originalList, onSave }: { list: List, onSave: (lis
                         }}
                     />
                     {!!recipes.length && (
-                        <ListGroup variant="flush" style={{
-                            maxHeight: '400px',
-                            overflowY: 'auto'
-                        }}>
+                        <ListGroup
+                            variant="flush"
+                            style={{
+                                maxHeight: '400px',
+                                overflowY: 'auto',
+                            }}
+                        >
                             {recipes.map((v) => (
-                                <ListGroup.Item key={v.id} onClick={() => setList(list.addRecipe(v))} style={{cursor: 'pointer'}}>
+                                <ListGroup.Item
+                                    key={v.id}
+                                    onClick={() => setList(list.addRecipe(v))}
+                                    style={{ cursor: 'pointer' }}
+                                >
                                     {v.name}
                                 </ListGroup.Item>
                             ))}
@@ -161,21 +178,27 @@ function EditListPage({ list: originalList, onSave }: { list: List, onSave: (lis
                         Add recipe
                     </Button>
                     {!!list.recipes.length && (
-                        <ListGroup variant="flush" style={{
-                            maxHeight: '400px',
-                            overflowY: 'auto'
-                        }}>
+                        <ListGroup
+                            variant="flush"
+                            style={{
+                                maxHeight: '400px',
+                                overflowY: 'auto',
+                            }}
+                        >
                             {list.recipes.map((v) => (
                                 <ListGroup.Item key={v.id}>
                                     <Row>
-                                        <Col>
-                                            {v.name}
-                                        </Col>
-                                        <Col className='text-right justify-content-center align-self-center' md={'auto'}>
+                                        <Col>{v.name}</Col>
+                                        <Col
+                                            className="text-right justify-content-center align-self-center"
+                                            md={'auto'}
+                                        >
                                             <Button
                                                 variant="outline-danger"
                                                 onClick={() => {
-                                                    setList(list.removeRecipe(v))
+                                                    setList(
+                                                        list.removeRecipe(v)
+                                                    )
                                                 }}
                                             >
                                                 Delete
