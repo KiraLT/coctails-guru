@@ -6,24 +6,24 @@ import { Recipes } from '../components/recipes'
 import { Recipe } from '../controllers/recipes'
 
 const Home: NextPage = () => {
-  const recipes = useMemo(() => Recipe.getAll(), [])
+    const recipes = useMemo(() => Recipe.getAll(), [])
 
-  return (
-    <Layout title="Signature Cocktails">
-      <section className="best-receipe-area">
-          <div className="container">
-              <div className="row">
-                  <div className="col-12">
-                      <div className="section-heading">
-                          <h3>Signature Cocktails</h3>
-                      </div>
-                  </div>
-              </div>
-              {!!recipes.length && <Recipes recipes={recipes} />}
-          </div>
-      </section>
-    </Layout>
-  )
+    return (
+        <Layout title="Signature Cocktails">
+            <section className="best-receipe-area">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="section-heading">
+                                <h3>Signature Cocktails</h3>
+                            </div>
+                        </div>
+                    </div>
+                    {!!recipes.length && <Recipes recipes={recipes} />}
+                </div>
+            </section>
+        </Layout>
+    )
 }
 
 export default Home

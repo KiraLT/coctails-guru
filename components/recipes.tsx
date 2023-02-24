@@ -1,5 +1,5 @@
-import { Row, Col } from "react-bootstrap";
-import { Recipe } from "../controllers/recipes";
+import { Row, Col } from 'react-bootstrap'
+import { Recipe } from '../controllers/recipes'
 import Image from 'next/image'
 import Link from 'next/link'
 

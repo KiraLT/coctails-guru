@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prettify": "prettier --write \"{components,controllers,data,pages,styles}/**/*.{js,ts,tsx,json,css,scss,yaml}\""
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -17,6 +18,8 @@
     "js-yaml": "^4.1.0",
     "next": "13.1.1",
     "next-yaml": "^1.0.1",
+    "prettier": "^2.8.4",
+    "qrcode.react": "^3.1.0",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "18.2.0",
