@@ -1,16 +1,21 @@
-import type { GetStaticProps, NextPage, GetStaticPaths } from 'next'
-import type { ParsedUrlQuery } from 'querystring'
-import Image from 'next-image-export-optimizer'
+import type { GetStaticProps, NextPage, GetStaticPaths } from "next";
+import type { ParsedUrlQuery } from "querystring";
+import Image from "next-image-export-optimizer";
 
-import { Layout } from '../../components/layout'
-import { formatQuantity, getAllRecipeSlugs, getRecipeBySlug, Recipe } from '../../controllers/recipes'
+import { Layout } from "../../components/layout";
+import {
+    formatQuantity,
+    getAllRecipeSlugs,
+    getRecipeBySlug,
+    Recipe,
+} from "../../controllers/recipes";
 
 export interface Props {
-    recipe: Recipe
+    recipe: Recipe;
 }
 
 export interface Params extends ParsedUrlQuery {
-    slug: string
+    slug: string;
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = (context) => {
@@ -18,8 +23,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = (context) => {
         props: {
             recipe: getRecipeBySlug(context.params?.slug!)!,
         },
-    }
-}
+    };
+};
 
 export const getStaticPaths: GetStaticPaths<Params> = () => {
     return {
@@ -29,8 +34,8 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
             },
         })),
         fallback: false,
-    }
-}
+    };
+};
 
 const Page: NextPage<Props> = ({ recipe }) => {
     return (
@@ -42,7 +47,9 @@ const Page: NextPage<Props> = ({ recipe }) => {
                             <div className="col-12 col-lg-8">
                                 <div className="receipe-headline my-5">
                                     <h2>{recipe.data.name}</h2>
-                                    {recipe.data.description && <p>{recipe.data.description}</p>}
+                                    {recipe.data.description && (
+                                        <p>{recipe.data.description}</p>
+                                    )}
                                 </div>
                                 {recipe.data.instructions.map((v, i) => (
                                     <div
@@ -57,8 +64,8 @@ const Page: NextPage<Props> = ({ recipe }) => {
                             <div className="col-12 col-lg-4">
                                 <div
                                     style={{
-                                        position: 'relative',
-                                        height: '250px',
+                                        position: "relative",
+                                        height: "250px",
                                     }}
                                     className="mb-3 mt-3"
                                 >
@@ -67,13 +74,15 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                         alt=""
                                         fill={true}
                                         style={{
-                                            objectFit: 'cover',
+                                            objectFit: "cover",
                                         }}
                                     />
                                 </div>
                                 <div className="ingredients">
                                     <h4>Ingredients</h4>
-                                    {Object.entries(recipe.data.ingredients).map(([ingredient, quantity]) => (
+                                    {Object.entries(
+                                        recipe.data.ingredients
+                                    ).map(([ingredient, quantity]) => (
                                         <div
                                             className="custom-control custom-checkbox"
                                             key={ingredient}
@@ -87,7 +96,8 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                                 className="custom-control-label"
                                                 htmlFor={`ingredient-${ingredient}`}
                                             >
-                                                {ingredient} {formatQuantity(quantity)}
+                                                {ingredient}{" "}
+                                                {formatQuantity(quantity)}
                                             </label>
                                         </div>
                                     ))}
@@ -98,7 +108,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                 </div>
             </>
         </Layout>
-    )
-}
+    );
+};
 
-export default Page
+export default Page;

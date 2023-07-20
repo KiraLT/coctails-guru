@@ -1,20 +1,27 @@
-import { Row, Col } from 'react-bootstrap'
-import { RecipeWithMeta } from '../controllers/recipes'
-import Image from "next-image-export-optimizer"
-import Link from 'next/link'
+import { Row, Col } from "react-bootstrap";
+import { RecipeWithMeta } from "../controllers/recipes";
+import Image from "next-image-export-optimizer";
+import Link from "next/link";
 
-export function Recipes({ recipes }: { recipes: RecipeWithMeta[] }): JSX.Element {
+export function Recipes({
+    recipes,
+}: {
+    recipes: RecipeWithMeta[];
+}): JSX.Element {
     return (
         <Row>
             {recipes.map((recipe) => (
                 <Col key={recipe.meta.id} xs={12} sm={6} md={4}>
                     <div className="single-best-receipe-area mb-30">
-                        <Link href={`/recipes/${recipe.meta.slug}`} legacyBehavior>
+                        <Link
+                            href={`/recipes/${recipe.meta.slug}`}
+                            legacyBehavior
+                        >
                             <a>
                                 <div
                                     style={{
-                                        position: 'relative',
-                                        height: '300px',
+                                        position: "relative",
+                                        height: "300px",
                                     }}
                                 >
                                     <Image
@@ -22,7 +29,7 @@ export function Recipes({ recipes }: { recipes: RecipeWithMeta[] }): JSX.Element
                                         alt={recipe.data.name}
                                         fill={true}
                                         style={{
-                                            objectFit: 'cover',
+                                            objectFit: "cover",
                                         }}
                                     />
                                 </div>
@@ -35,5 +42,5 @@ export function Recipes({ recipes }: { recipes: RecipeWithMeta[] }): JSX.Element
                 </Col>
             ))}
         </Row>
-    )
+    );
 }

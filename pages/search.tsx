@@ -1,28 +1,28 @@
-import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
-import { useMemo } from 'react'
-import { Alert } from 'react-bootstrap'
-import Fuse from 'fuse.js'
+import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import { useMemo } from "react";
+import { Alert } from "react-bootstrap";
+import Fuse from "fuse.js";
 
-import { Layout } from '../components/layout'
-import { getAllRecipesWithMeta } from '../controllers/recipes'
-import { Recipes } from '../components/recipes'
+import { Layout } from "../components/layout";
+import { getAllRecipesWithMeta } from "../controllers/recipes";
+import { Recipes } from "../components/recipes";
 
 const Home: NextPage = () => {
-    const router = useRouter()
-    const { q } = router.query
+    const router = useRouter();
+    const { q } = router.query;
 
-    const query = typeof q === 'string' ? q : ''
+    const query = typeof q === "string" ? q : "";
 
     const fuse = useMemo(() => {
         return new Fuse(getAllRecipesWithMeta(), {
-            keys: ['data.name'],
-        })
-    }, [])
+            keys: ["data.name"],
+        });
+    }, []);
 
     const recipes = useMemo(() => {
-        return fuse.search(query).map((v) => v.item)
-    }, [fuse, query])
+        return fuse.search(query).map((v) => v.item);
+    }, [fuse, query]);
 
     return (
         <Layout title="Search">
@@ -42,7 +42,7 @@ const Home: NextPage = () => {
                 </div>
             </section>
         </Layout>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
