@@ -1,0 +1,14 @@
+{
+    "name": "Daiquiri",
+    "description": "Originating from Cuba in the late 19th century, the Classic Daiquiri is a rum-based cocktail known for its simple yet captivating combination of sweet, sour, and spirit. Featuring a harmonious blend of white rum, fresh lime juice, and simple syrup, it provides a refreshing tropical allure. It is traditionally served in a chilled cocktail glass without any garnish, allowing the pure flavors to shine through. This cocktail is a testament to the potent beauty of minimalism in mixology.",
+    "instructions": [
+        "In a shaker, combine ingredients with ice and shake well.",
+        "Strain the mix into a chilled cocktail glass.",
+        "Garnish with a lime wheel."
+    ],
+    "ingredients": {
+        "white rum": 2,
+        "lime juice": 1,
+        "simple syrup": 0.5
+    }
+}

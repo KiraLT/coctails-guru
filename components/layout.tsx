@@ -1,22 +1,22 @@
-import Head from "next/head";
-import Image from "next-image-export-optimizer";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { Form, Button, Container, Nav, Navbar } from "react-bootstrap";
-import { FaSearch } from "react-icons/fa";
+import Head from 'next/head'
+import Image from 'next-image-export-optimizer'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
+import { FaSearch } from 'react-icons/fa'
 
-import logo from "../public/logo.png";
+import logo from '../public/logo.png'
 
 export function Layout({
     children,
     title,
 }: {
-    title: string;
-    children: JSX.Element;
+    title: string
+    children: JSX.Element
 }): React.ReactElement {
-    const router = useRouter();
-    const { q } = router.query;
-    const query = typeof q === "string" ? q : "";
+    const router = useRouter()
+    const { q } = router.query
+    const query = typeof q === 'string' ? q : ''
 
     return (
         <>
@@ -44,7 +44,7 @@ export function Layout({
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
                                 className="me-auto my-2 my-lg-0 ml-5"
-                                style={{ maxHeight: "100px", flexGrow: "1" }}
+                                style={{ maxHeight: '100px', flexGrow: '1' }}
                                 navbarScroll
                             >
                                 <Link href="/" passHref legacyBehavior>
@@ -57,19 +57,19 @@ export function Layout({
                             <Form
                                 className="d-flex"
                                 onSubmit={(event) => {
-                                    event.preventDefault();
+                                    event.preventDefault()
 
                                     const data = new FormData(
                                         event.target as HTMLFormElement,
-                                    );
-                                    const query = data.get("query");
+                                    )
+                                    const query = data.get('query')
 
                                     if (query) {
                                         router.push(
                                             `/search?${new URLSearchParams({
                                                 q: String(query),
                                             })}`,
-                                        );
+                                        )
                                     }
                                 }}
                             >
@@ -91,5 +91,5 @@ export function Layout({
             </Container>
             {children}
         </>
-    );
+    )
 }

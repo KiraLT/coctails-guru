@@ -35,5 +35,9 @@
     "serve": "^14.2.0",
     "sharp": "^0.32.3",
     "typescript": "5.1.6"
+  },
+  "prettier": {
+      "semi": false,
+      "singleQuote": true
   }
 }

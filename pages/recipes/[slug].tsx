@@ -1,21 +1,21 @@
-import type { GetStaticProps, NextPage, GetStaticPaths } from "next";
-import type { ParsedUrlQuery } from "querystring";
-import Image from "next-image-export-optimizer";
+import type { GetStaticProps, NextPage, GetStaticPaths } from 'next'
+import type { ParsedUrlQuery } from 'querystring'
+import Image from 'next-image-export-optimizer'
 
-import { Layout } from "../../components/layout";
+import { Layout } from '../../components/layout'
 import {
     formatQuantity,
     getAllRecipeSlugs,
     getRecipeBySlug,
     Recipe,
-} from "../../controllers/recipes";
+} from '../../controllers/recipes'
 
 export interface Props {
-    recipe: Recipe;
+    recipe: Recipe
 }
 
 export interface Params extends ParsedUrlQuery {
-    slug: string;
+    slug: string
 }
 
 export const getStaticProps: GetStaticProps<Props, Params> = (context) => {
@@ -23,8 +23,8 @@ export const getStaticProps: GetStaticProps<Props, Params> = (context) => {
         props: {
             recipe: getRecipeBySlug(context.params?.slug!)!,
         },
-    };
-};
+    }
+}
 
 export const getStaticPaths: GetStaticPaths<Params> = () => {
     return {
@@ -34,8 +34,8 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
             },
         })),
         fallback: false,
-    };
-};
+    }
+}
 
 const Page: NextPage<Props> = ({ recipe }) => {
     return (
@@ -64,8 +64,8 @@ const Page: NextPage<Props> = ({ recipe }) => {
                             <div className="col-12 col-lg-4">
                                 <div
                                     style={{
-                                        position: "relative",
-                                        height: "250px",
+                                        position: 'relative',
+                                        height: '250px',
                                     }}
                                     className="mb-3 mt-3"
                                 >
@@ -74,7 +74,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                         alt=""
                                         fill={true}
                                         style={{
-                                            objectFit: "cover",
+                                            objectFit: 'cover',
                                         }}
                                     />
                                 </div>
@@ -96,7 +96,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                                 className="custom-control-label"
                                                 htmlFor={`ingredient-${ingredient}`}
                                             >
-                                                {ingredient}{" "}
+                                                {ingredient}{' '}
                                                 {formatQuantity(quantity)}
                                             </label>
                                         </div>
@@ -108,7 +108,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                 </div>
             </>
         </Layout>
-    );
-};
+    )
+}
 
-export default Page;
+export default Page

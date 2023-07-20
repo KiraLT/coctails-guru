@@ -1,12 +1,12 @@
-import { Row, Col } from "react-bootstrap";
-import { RecipeWithMeta } from "../controllers/recipes";
-import Image from "next-image-export-optimizer";
-import Link from "next/link";
+import { Row, Col } from 'react-bootstrap'
+import { RecipeWithMeta } from '../controllers/recipes'
+import Image from 'next-image-export-optimizer'
+import Link from 'next/link'
 
 export function Recipes({
     recipes,
 }: {
-    recipes: RecipeWithMeta[];
+    recipes: RecipeWithMeta[]
 }): JSX.Element {
     return (
         <Row>
@@ -20,8 +20,8 @@ export function Recipes({
                             <a>
                                 <div
                                     style={{
-                                        position: "relative",
-                                        height: "300px",
+                                        position: 'relative',
+                                        height: '300px',
                                     }}
                                 >
                                     <Image
@@ -29,7 +29,7 @@ export function Recipes({
                                         alt={recipe.data.name}
                                         fill={true}
                                         style={{
-                                            objectFit: "cover",
+                                            objectFit: 'cover',
                                         }}
                                     />
                                 </div>
@@ -42,5 +42,5 @@ export function Recipes({
                 </Col>
             ))}
         </Row>
-    );
+    )
 }

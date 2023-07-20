@@ -1,15 +1,15 @@
-import { deduplicateBy, deduplicate, isNot, isUndefined } from "common-stuff";
+import { deduplicateBy, deduplicate, isNot, isUndefined } from 'common-stuff'
 
 export interface List {
-    name: string;
-    recipes: number[];
+    name: string
+    recipes: number[]
 }
 
-const localStorageKey = "my-lists";
+const localStorageKey = 'my-lists'
 
 export function getAllLists(): List[] {
-    const string = window.localStorage.getItem(localStorageKey);
-    return string ? (JSON.parse(string) as List[]) : [];
+    const string = window.localStorage.getItem(localStorageKey)
+    return string ? (JSON.parse(string) as List[]) : []
 }
 
 export function saveLists(lists: List[]): void {
@@ -21,41 +21,41 @@ export function saveLists(lists: List[]): void {
                 recipes: deduplicate(v.recipes),
             })),
         ),
-    );
+    )
 }
 
 export function deleteListByName(name: string): void {
-    saveLists(getAllLists().filter((v) => v.name != name));
+    saveLists(getAllLists().filter((v) => v.name != name))
 }
 
 export function getListUrl(list: List): string {
     return `/list?${new URLSearchParams({
         n: list.name,
-        r: list.recipes.join(" "),
-    })}`;
+        r: list.recipes.join(' '),
+    })}`
 }
 
 export function getListFromUrlQuery(
     query: Record<string, string | string[] | undefined | null>,
 ): List {
-    const name = typeof query.n === "string" ? query.n : "";
+    const name = typeof query.n === 'string' ? query.n : ''
     const recipeIds =
-        typeof query.r === "string"
+        typeof query.r === 'string'
             ? query.r
-                  .split(" ")
+                  .split(' ')
                   .map((v) => parseInt(v, 10))
                   .filter((v) => !isNaN(v))
-            : [];
+            : []
 
     return {
         name,
         recipes: recipeIds,
-    };
+    }
 }
 
 export function replaceList(oldList: List, newList: List): void {
     saveLists([
         ...getAllLists().filter((v) => v.name !== oldList.name),
         newList,
-    ]);
+    ])
 }

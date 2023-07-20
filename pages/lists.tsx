@@ -1,17 +1,13 @@
-import type { NextPage } from "next";
-import { Alert, Button, Col, ListGroup, Row } from "react-bootstrap";
-import Link from "next/link";
-import { useAsync } from "react-async-hook";
+import type { NextPage } from 'next'
+import { Alert, Button, Col, ListGroup, Row } from 'react-bootstrap'
+import Link from 'next/link'
+import { useAsync } from 'react-async-hook'
 
-import { Layout } from "../components/layout";
-import {
-    deleteListByName,
-    getAllLists,
-    getListUrl,
-} from "../controllers/lists";
+import { Layout } from '../components/layout'
+import { deleteListByName, getAllLists, getListUrl } from '../controllers/lists'
 
 const Lists: NextPage = () => {
-    const lists = useAsync(async () => getAllLists(), []);
+    const lists = useAsync(async () => getAllLists(), [])
 
     return (
         <Layout title="Search">
@@ -43,7 +39,7 @@ const Lists: NextPage = () => {
                                             <Link href={getListUrl(v)}>
                                                 <span className="text-truncate">
                                                     {v.name}
-                                                </span>{" "}
+                                                </span>{' '}
                                             </Link>
                                             <small className="text-muted">
                                                 ({v.recipes.length} recipes)
@@ -51,13 +47,13 @@ const Lists: NextPage = () => {
                                         </Col>
                                         <Col
                                             className="text-right justify-content-center align-self-center"
-                                            md={"auto"}
+                                            md={'auto'}
                                         >
                                             <Button
                                                 variant="outline-danger"
                                                 onClick={() => {
-                                                    deleteListByName(v.name);
-                                                    lists.execute();
+                                                    deleteListByName(v.name)
+                                                    lists.execute()
                                                 }}
                                             >
                                                 Delete
@@ -71,7 +67,7 @@ const Lists: NextPage = () => {
                 </div>
             </section>
         </Layout>
-    );
-};
+    )
+}
 
-export default Lists;
+export default Lists
