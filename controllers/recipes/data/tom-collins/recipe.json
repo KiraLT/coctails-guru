@@ -1,0 +1,17 @@
+{
+    "name": "Tom Collins",
+    "description": "A cocktail with a rich history dating back to 19th-century London, the Tom Collins is a timeless and refreshing gin-based drink. It pairs the botanical complexities of gin with the tartness of fresh lemon juice, balanced by a touch of simple syrup, and topped up with a splash of club soda for effervescence. Served in a 'Collins' glass over ice and often garnished with a lemon slice and a cherry, the Tom Collins is the epitome of classic refreshment.",
+    "instructions": [
+        "In a shaker, combine gin, simple syrup, and lemon juice. Shake well.",
+        "Pour into a chilled Collins glass filled with ice.",
+        "Top with soda water.",
+        "Gently stir to combine, but not so much so that you lose carbonation.",
+        "Garnish with a lemon slice."
+    ],
+    "ingredients": {
+        "gin": 1.5,
+        "simple syrup": 0.5,
+        "lemon juice": 0.75,
+        "soda": 2
+    }
+}

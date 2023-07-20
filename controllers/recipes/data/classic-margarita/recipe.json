@@ -1,0 +1,16 @@
+{
+    "name": "Classic Margarita",
+    "description": "Rooted in the 1930s-1940s era of Mexico, the Classic Margarita has become a beloved icon in the cocktail world. Combining the vegetal notes of tequila with the sweet, citrusy burst of Cointreau and lime juice, it delivers a perfect balance of flavors. Traditionally served in a salt-rimmed glass to complement the sour profile, this cocktail is the epitome of Mexican mixology magic.",
+    "instructions": [
+        "Rim edge of margarita glass in lime juice and coarse salt",
+        "Combine ingredients with ice and shake well.",
+        "Strain mix over the glass.",
+        "Garnish with a lime wheel."
+    ],
+    "ingredients": {
+        "silver tequila": 1.5,
+        "orange liqueur": 1,
+        "lime juice": 0.75,
+        "agave nectar": 2
+    }
+}

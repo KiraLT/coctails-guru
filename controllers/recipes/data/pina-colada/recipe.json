@@ -1,0 +1,14 @@
+{
+    "name": "Piña colada",
+    "description": "Born in Puerto Rico in the mid-20th century, the Piña Colada is a tropical cocktail that's become synonymous with island relaxation. This creamy and sweet delight blends rum, coconut cream, and pineapple juice, creating a smooth, fruity fusion that transports your taste buds straight to the beach. Served often with a garnish of a pineapple wedge and maraschino cherry, the Piña Colada is the quintessential sip of Caribbean paradise.",
+    "instructions": [
+        "Combine ingredients with some ice and shake well.",
+        "Garnish with pineapple slice and cherry."
+    ],
+    "ingredients": {
+        "white rum": 0.5,
+        "pineapple juice": 4,
+        "coconut cream": 2,
+        "simple syrup": 0.5
+    }
+}

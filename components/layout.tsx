@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Image from 'next-image-export-optimizer'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
+
+import logo from '../public/logo.png'
 
 export function Layout({
     children,
@@ -30,7 +32,7 @@ export function Layout({
                             <Link href="/" passHref legacyBehavior>
                                 <a>
                                     <Image
-                                        src="/logo.png"
+                                        src={logo}
                                         alt=""
                                         width={200}
                                         height={59}

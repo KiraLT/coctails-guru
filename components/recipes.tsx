@@ -1,15 +1,15 @@
 import { Row, Col } from 'react-bootstrap'
-import { Recipe } from '../controllers/recipes'
-import Image from 'next/image'
+import { RecipeWithMeta } from '../controllers/recipes'
+import Image from "next-image-export-optimizer"
 import Link from 'next/link'
 
-export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
+export function Recipes({ recipes }: { recipes: RecipeWithMeta[] }): JSX.Element {
     return (
         <Row>
             {recipes.map((recipe) => (
-                <Col key={recipe.id} xs={12} sm={6} md={4}>
+                <Col key={recipe.meta.id} xs={12} sm={6} md={4}>
                     <div className="single-best-receipe-area mb-30">
-                        <Link href={recipe.url} legacyBehavior>
+                        <Link href={`/recipes/${recipe.meta.slug}`} legacyBehavior>
                             <a>
                                 <div
                                     style={{
@@ -19,7 +19,7 @@ export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
                                 >
                                     <Image
                                         src={recipe.image}
-                                        alt={recipe.name}
+                                        alt={recipe.data.name}
                                         fill={true}
                                         style={{
                                             objectFit: 'cover',
@@ -27,7 +27,7 @@ export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
                                     />
                                 </div>
                                 <div className="receipe-content">
-                                    <h5>{recipe.name}</h5>
+                                    <h5>{recipe.data.name}</h5>
                                 </div>
                             </a>
                         </Link>
