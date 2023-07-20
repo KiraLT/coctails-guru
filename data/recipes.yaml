@@ -2,9 +2,9 @@
   name: Classic Margarita
   image: margarita.png
   instructions:
-    - Rim edge of margarita glass in lime juice and coarse salt.
-    - Combine tequila, cointreau and fresh lime juice with ice and shake well.
-    - Strain mix over the glass. Garnish with a lime wheel.
+      - Rim edge of margarita glass in lime juice and coarse salt.
+      - Combine tequila, cointreau and fresh lime juice with ice and shake well.
+      - Strain mix over the glass. Garnish with a lime wheel.
   ingredients:
       silver tequila: 1.5
       orange liqueur: 1
@@ -14,9 +14,9 @@
   name: Mango Margarita
   image: mango-margarita.png
   instructions:
-    - Rim edge of margarita glass in lime juice and coarse salt combined with chilli.
-    - Mix all ingredients in the mixer with ice.
-    - Garnish with a lime wheel.
+      - Rim edge of margarita glass in lime juice and coarse salt combined with chilli.
+      - Mix all ingredients in the mixer with ice.
+      - Garnish with a lime wheel.
   ingredients:
       silver tequila: 2
       orange liqueur: 1
@@ -27,9 +27,9 @@
   name: paloma
   image: paloma.png
   instructions:
-    - Rim edge of glass in lime juice and coarse salt combined with chilli.
-    - Fill glass with ice and pour over tequila and lime juice.
-    - Top with grapefruit soda and garnish with a grapefruit wedge.
+      - Rim edge of glass in lime juice and coarse salt combined with chilli.
+      - Fill glass with ice and pour over tequila and lime juice.
+      - Top with grapefruit soda and garnish with a grapefruit wedge.
   ingredients:
       silver tequila: 1.5
       grapefruit soda: 3
@@ -39,11 +39,11 @@
   name: Tequila Sunrise
   image: tequila-sunrise.png
   instructions:
-    - Fill a glass with ice cubes.
-    - Pour over tequila and orange juice.
-    - Slowly add the grenadine which will sink to the bottom of the glass.
-    - Garnish with an orange slice and a maraschino cherry.
-    - Stir before drinking.
+      - Fill a glass with ice cubes.
+      - Pour over tequila and orange juice.
+      - Slowly add the grenadine which will sink to the bottom of the glass.
+      - Garnish with an orange slice and a maraschino cherry.
+      - Stir before drinking.
   ingredients:
       silver tequila: 1.5
       orange juice: 3
@@ -52,10 +52,10 @@
   name: Mexican Mule
   image: mexican-mule.png
   instructions:
-    - Fill a copper mug or similarly sized glass with ice.
-    - Pour in the silver tequila and lime juice.
-    - Fill the glass with ginger beer and gently swirl it with a spoon once to mix.
-    - Garnish with a lime lime wheel and mint.
+      - Fill a copper mug or similarly sized glass with ice.
+      - Pour in the silver tequila and lime juice.
+      - Fill the glass with ginger beer and gently swirl it with a spoon once to mix.
+      - Garnish with a lime lime wheel and mint.
   ingredients:
       silver tequila: 1.5
       ginger beer: 3
@@ -64,11 +64,11 @@
   name: Dark 'N' Stormy
   image: dark-n-stormy.png
   instructions:
-    - Fill a glass with ice cubes.
-    - Pour ginger beer into the glass.
-    - Pour rum into the glass- if you pour carefully, the rum should float atop the ginger beer.
-    - Garnish with a lime wedge.
-    - Stir before drinking.
+      - Fill a glass with ice cubes.
+      - Pour ginger beer into the glass.
+      - Pour rum into the glass- if you pour carefully, the rum should float atop the ginger beer.
+      - Garnish with a lime wedge.
+      - Stir before drinking.
   ingredients:
       spiced rum: 2
       ginger beer: 4
@@ -77,10 +77,10 @@
   name: Mojito
   image: mojito.png
   instructions:
-    - Drop lime wedges, mint leaves and simple syrup into base of glass.
-    - Muddle well.
-    - Add ice and rum before topping with club soda.
-    - Garnish with a lime wedge and a mint sprig.
+      - Drop lime wedges, mint leaves and simple syrup into base of glass.
+      - Muddle well.
+      - Add ice and rum before topping with club soda.
+      - Garnish with a lime wedge and a mint sprig.
   ingredients:
       mint leaves: 10
       lime: 0.5
@@ -91,8 +91,8 @@
   name: Pina colada
   image: pina-colada.png
   instructions:
-    - Combine ingredients with some ice and shake well.
-    - Garnish with pineapple slice and cherry.
+      - Combine ingredients with some ice and shake well.
+      - Garnish with pineapple slice and cherry.
   ingredients:
       white rum: 0.5
       pineapple juice: 4
@@ -102,10 +102,10 @@
   name: Gin & Tonic
   image: gin-n-tonic.png
   instructions:
-    - Fill a highball glass with ice cubes.
-    - Pour the gin, then top with tonic.
-    - Gently stir to combine, but not so much so that you lose carbonation.
-    - Garnish with a lime wedge.
+      - Fill a highball glass with ice cubes.
+      - Pour the gin, then top with tonic.
+      - Gently stir to combine, but not so much so that you lose carbonation.
+      - Garnish with a lime wedge.
   ingredients:
       gin: 2
       tonic: 6
@@ -113,8 +113,8 @@
   name: Tom Collins
   image: tom-collins.png
   instructions:
-    - Build in collins glass filled with ice.
-    - Garnish with a lemon slice.
+      - Build in collins glass filled with ice.
+      - Garnish with a lemon slice.
   ingredients:
       gin: 1.5
       simple syrup: 0.5
@@ -124,10 +124,10 @@
   name: Moscow Mule
   image: moscow-mule.png
   instructions:
-    - Fill a copper mug or similarly sized glass with ice.
-    - Pour in the vodka and lime juice.
-    - Fill the glass with ginger beer and gently swirl it with a spoon once to mix.
-    - Garnish with a lime lime wheel and mint.
+      - Fill a copper mug or similarly sized glass with ice.
+      - Pour in the vodka and lime juice.
+      - Fill the glass with ginger beer and gently swirl it with a spoon once to mix.
+      - Garnish with a lime lime wheel and mint.
   ingredients:
       vodka: 2
       ginger beer: 4
@@ -136,9 +136,9 @@
   name: Tropical Dream
   image: tropical-dream.png
   instructions:
-    - Shake all ingredients with ice.
-    - Strain into a cocktail glass.
-    - Garnish with a cherry.
+      - Shake all ingredients with ice.
+      - Strain into a cocktail glass.
+      - Garnish with a cherry.
   ingredients:
       blue curaçao: 1
       coconut rum: 2
@@ -147,9 +147,9 @@
   name: Mai Tai
   image: mai-tai.png
   instructions:
-    - Shake all ingredients besides the dark rum together over ice.
-    - Add ice to serving glass and strain mix over. Float dark rum on top.
-    - Garnish with pineapple wedge, mint sprig and cherry.
+      - Shake all ingredients besides the dark rum together over ice.
+      - Add ice to serving glass and strain mix over. Float dark rum on top.
+      - Garnish with pineapple wedge, mint sprig and cherry.
   ingredients:
       white rum: 1.5
       dark run: 0.75
@@ -160,11 +160,10 @@
   name: Espresso Martini
   image: espresso-martini.png
   instructions:
-    - Add ice to mixing glass and add vodka, coffee liqueur and espresso. Shake vigorously.
-    - Empty ice from shaker and strain mix through fine mesh strainer.
-    - Garnish with coffee beans.
+      - Add ice to mixing glass and add vodka, coffee liqueur and espresso. Shake vigorously.
+      - Empty ice from shaker and strain mix through fine mesh strainer.
+      - Garnish with coffee beans.
   ingredients:
       vodka: 1.5
       coffee liqueur: 1
       espresso: 1
-

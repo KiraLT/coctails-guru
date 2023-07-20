@@ -23,27 +23,19 @@ export function Layout({
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-        <Container className="mt-5 mb-3">
-            <Navbar expand="lg">
-                <Container fluid>
-                    <Navbar.Brand>
-                        <Link href="/" legacyBehavior>
-                            <a>
-                                <Image src="/logo.png" alt="" width={200} height={59} />
-                            </a>
-                        </Link>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
-                        <Nav
-                            className="me-auto my-2 my-lg-0 ml-5"
-                            style={{ maxHeight: '100px', flexGrow: '1' }}
-                            navbarScroll
-                        >
+            <Container className="mt-5 mb-3">
+                <Navbar expand="lg">
+                    <Container fluid>
+                        <Navbar.Brand>
                             <Link href="/" passHref legacyBehavior>
-                                <Nav.Link>
-                                    Home
-                                </Nav.Link>
+                                <a>
+                                    <Image
+                                        src="/logo.png"
+                                        alt=""
+                                        width={200}
+                                        height={59}
+                                    />
+                                </a>
                             </Link>
                         </Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -53,10 +45,10 @@ export function Layout({
                                 style={{ maxHeight: '100px', flexGrow: '1' }}
                                 navbarScroll
                             >
-                                <Link href="/" passHref>
+                                <Link href="/" passHref legacyBehavior>
                                     <Nav.Link>Home</Nav.Link>
                                 </Link>
-                                <Link href="/lists" passHref>
+                                <Link href="/lists" passHref legacyBehavior>
                                     <Nav.Link>My Lists</Nav.Link>
                                 </Link>
                             </Nav>

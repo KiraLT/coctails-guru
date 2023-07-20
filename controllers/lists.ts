@@ -12,15 +12,12 @@ export class List {
     constructor(public name: string = '', public recipes: Recipe[] = []) {}
 
     save(): List {
-        List.save([
-            ...List.getAll(),
-            this
-        ])
+        List.save([...List.getAll(), this])
         return this
     }
 
     delete(): List {
-        List.save(List.getAll().filter(v => v.name != this.name))
+        List.save(List.getAll().filter((v) => v.name != this.name))
         return this
     }
 
@@ -36,11 +33,17 @@ export class List {
     }
 
     addRecipe(recipe: Recipe): List {
-        return new List(this.name, deduplicateBy([...this.recipes, recipe], v => v.id))
+        return new List(
+            this.name,
+            deduplicateBy([...this.recipes, recipe], (v) => v.id)
+        )
     }
 
     removeRecipe(recipe: Recipe): List {
-        return new List(this.name, this.recipes.filter(v => v.id != recipe.id))
+        return new List(
+            this.name,
+            this.recipes.filter((v) => v.id != recipe.id)
+        )
     }
 
     static getAll(): List[] {
@@ -60,11 +63,17 @@ export class List {
         )
     }
 
-    static fromUrlQuery(query: Record<string, string | string[] | undefined | null>): List {
+    static fromUrlQuery(
+        query: Record<string, string | string[] | undefined | null>
+    ): List {
         const name = typeof query.n === 'string' ? query.n : ''
-        const recipeIds = typeof query.r === 'string' ?
-            query.r.split(' ').map((v) => parseInt(v, 10) || undefined).filter(isNot(isUndefined)) :
-            []
+        const recipeIds =
+            typeof query.r === 'string'
+                ? query.r
+                      .split(' ')
+                      .map((v) => parseInt(v, 10) || undefined)
+                      .filter(isNot(isUndefined))
+                : []
 
         return List.create(name, recipeIds)
     }
@@ -74,10 +83,13 @@ export class List {
             List.localStorageKey,
             JSON.stringify(
                 deduplicateBy(
-                    lists.map(v => ({
-                        name: v.name,
-                        recipes: v.recipes.map((v) => v.id),
-                    } as RawList)),
+                    lists.map(
+                        (v) =>
+                            ({
+                                name: v.name,
+                                recipes: v.recipes.map((v) => v.id),
+                            } as RawList)
+                    ),
                     (v) => v.name
                 )
             )
