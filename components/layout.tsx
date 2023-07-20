@@ -60,7 +60,7 @@ export function Layout({
                                     event.preventDefault();
 
                                     const data = new FormData(
-                                        event.target as HTMLFormElement
+                                        event.target as HTMLFormElement,
                                     );
                                     const query = data.get("query");
 
@@ -68,7 +68,7 @@ export function Layout({
                                         router.push(
                                             `/search?${new URLSearchParams({
                                                 q: String(query),
-                                            })}`
+                                            })}`,
                                         );
                                     }
                                 }}

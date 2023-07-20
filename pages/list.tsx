@@ -225,7 +225,7 @@ function EditListPage({
                                                             list.recipes.filter(
                                                                 (r) =>
                                                                     r !=
-                                                                    v.meta.id
+                                                                    v.meta.id,
                                                             ),
                                                     });
                                                 }}

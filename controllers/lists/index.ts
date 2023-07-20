@@ -19,8 +19,8 @@ export function saveLists(lists: List[]): void {
             deduplicateBy(lists, (v) => v.name).map((v) => ({
                 ...v,
                 recipes: deduplicate(v.recipes),
-            }))
-        )
+            })),
+        ),
     );
 }
 
@@ -36,7 +36,7 @@ export function getListUrl(list: List): string {
 }
 
 export function getListFromUrlQuery(
-    query: Record<string, string | string[] | undefined | null>
+    query: Record<string, string | string[] | undefined | null>,
 ): List {
     const name = typeof query.n === "string" ? query.n : "";
     const recipeIds =

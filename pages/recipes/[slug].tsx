@@ -81,7 +81,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                 <div className="ingredients">
                                     <h4>Ingredients</h4>
                                     {Object.entries(
-                                        recipe.data.ingredients
+                                        recipe.data.ingredients,
                                     ).map(([ingredient, quantity]) => (
                                         <div
                                             className="custom-control custom-checkbox"
