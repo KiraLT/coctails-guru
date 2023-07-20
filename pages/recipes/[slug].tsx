@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage, GetStaticPaths } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
 import Image from 'next-image-export-optimizer'
+import { Metadata, ResolvingMetadata } from 'next'
 
 import { Layout } from '../../components/layout'
 import {
@@ -39,7 +40,11 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
 
 const Page: NextPage<Props> = ({ recipe }) => {
     return (
-        <Layout title={recipe.data.name}>
+        <Layout
+            title={recipe.data.name}
+            description={recipe.data.description}
+            image={recipe.image.src}
+        >
             <>
                 <div className="receipe-content-area">
                     <div className="container">

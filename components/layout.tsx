@@ -10,8 +10,12 @@ import logo from '../public/logo.png'
 export function Layout({
     children,
     title,
+    description,
+    image,
 }: {
     title: string
+    description?: string
+    image?: string
     children: JSX.Element
 }): React.ReactElement {
     const router = useRouter()
@@ -23,6 +27,10 @@ export function Layout({
             <Head>
                 <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
+                {description && (
+                    <meta name="description" content={description} />
+                )}
+                {image && <meta name="og:image" content={image} />}
             </Head>
 
             <Container className="mt-5 mb-3">
