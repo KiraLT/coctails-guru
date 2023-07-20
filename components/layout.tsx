@@ -6,7 +6,8 @@ import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
 
 export function Layout({
-    children, title
+    children,
+    title,
 }: {
     title: string
     children: JSX.Element
@@ -15,11 +16,12 @@ export function Layout({
     const { q } = router.query
     const query = typeof q === 'string' ? q : ''
 
-    return <>
-        <Head>
-            <title>{title}</title>
-            <link rel="icon" href="/favicon.ico" />
-        </Head>
+    return (
+        <>
+            <Head>
+                <title>{title}</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
         <Container className="mt-5 mb-3">
             <Navbar expand="lg">
@@ -43,35 +45,57 @@ export function Layout({
                                     Home
                                 </Nav.Link>
                             </Link>
-                        </Nav>
-                        <Form className="d-flex" onSubmit={event => {
-                            event.preventDefault()
-                            
-                            const data = new FormData(event.target as HTMLFormElement)
-                            const query = data.get('query')
+                        </Navbar.Brand>
+                        <Navbar.Toggle aria-controls="navbarScroll" />
+                        <Navbar.Collapse id="navbarScroll">
+                            <Nav
+                                className="me-auto my-2 my-lg-0 ml-5"
+                                style={{ maxHeight: '100px', flexGrow: '1' }}
+                                navbarScroll
+                            >
+                                <Link href="/" passHref>
+                                    <Nav.Link>Home</Nav.Link>
+                                </Link>
+                                <Link href="/lists" passHref>
+                                    <Nav.Link>My Lists</Nav.Link>
+                                </Link>
+                            </Nav>
+                            <Form
+                                className="d-flex"
+                                onSubmit={(event) => {
+                                    event.preventDefault()
 
-                            if (query) {
-                                router.push(`/search?${new URLSearchParams({
-                                    q: String(query)
-                                })}`)
-                            }
-                        }}>
-                            <Form.Control
-                                type="search"
-                                placeholder="Search"
-                                className="me-2"
-                                aria-label="Search"
-                                name="query"
-                                defaultValue={query}
-                            />
-                            <Button variant="link" type="submit">
-                                <FaSearch/>
-                            </Button>
-                        </Form>
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </Container>
-        {children}
-    </>
+                                    const data = new FormData(
+                                        event.target as HTMLFormElement
+                                    )
+                                    const query = data.get('query')
+
+                                    if (query) {
+                                        router.push(
+                                            `/search?${new URLSearchParams({
+                                                q: String(query),
+                                            })}`
+                                        )
+                                    }
+                                }}
+                            >
+                                <Form.Control
+                                    type="search"
+                                    placeholder="Search"
+                                    className="me-2"
+                                    aria-label="Search"
+                                    name="query"
+                                    defaultValue={query}
+                                />
+                                <Button variant="link" type="submit">
+                                    <FaSearch />
+                                </Button>
+                            </Form>
+                        </Navbar.Collapse>
+                    </Container>
+                </Navbar>
+            </Container>
+            {children}
+        </>
+    )
 }

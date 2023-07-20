@@ -2,14 +2,14 @@ import * as z from 'zod'
 import slugify from 'slugify'
 import { titleCase } from 'common-stuff'
 
-import rawRecipes from '../public/recipes.yaml'
+import rawRecipes from '../data/recipes.yaml'
 
 const schema = z.object({
     id: z.number(),
     name: z.string(),
     image: z.string(),
-    instructions: z.string(),
-    ingredients: z.record(z.number())
+    instructions: z.array(z.string()),
+    ingredients: z.record(z.number()),
 })
 export type RawRecipe = z.infer<typeof schema>
 
@@ -25,7 +25,7 @@ export class Ingredient {
             0.3: '⅓',
             0.25: '¼',
             0.75: '¾',
-            0.6: '⅔'
+            0.6: '⅔',
         }
 
         return `${q1 || ''} ${mappings[q2] || q2 || ''} oz ${this.name}`
@@ -42,11 +42,11 @@ export class Recipe {
     get name(): string {
         return titleCase(this.data.name)
     }
-    
+
     get slug(): string {
         return slugify(this.data.name.toLowerCase())
     }
-    
+
     get url(): string {
         return `/recipes/${this.slug}`
     }
@@ -57,13 +57,12 @@ export class Recipe {
 
     get instructions(): string[] {
         return this.data.instructions
-            .split('.')
-            .map(v => v.trim())
-            .filter(v => !!v)
     }
 
     get ingredients(): Ingredient[] {
-        return Object.entries(this.data.ingredients).map(([k, v]) => new Ingredient(k, v))
+        return Object.entries(this.data.ingredients).map(
+            ([k, v]) => new Ingredient(k, v)
+        )
     }
 
     serialize(): RawRecipe {
@@ -72,12 +71,13 @@ export class Recipe {
 
     static getAll(): Recipe[] {
         const slugs = new Set()
-        return z.array(schema)
+        return z
+            .array(schema)
             .parse(rawRecipes)
-            .map(r => {
+            .map((r) => {
                 const recipe = new Recipe(r)
                 const slug = recipe.slug
-                
+
                 if (slugs.has(slug)) {
                     throw new Error('Fatal error')
                 }
@@ -88,6 +88,10 @@ export class Recipe {
     }
 
     static fromSlug(slug: string): Recipe | undefined {
-        return this.getAll().find(v => v.slug === slug)
+        return this.getAll().find((v) => v.slug === slug)
+    }
+
+    static fromId(id: number): Recipe | undefined {
+        return Recipe.getAll().find((v) => v.id === id)
     }
 }
