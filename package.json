@@ -12,7 +12,6 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "bootstrap": "^5.3.0",
     "common-stuff": "^1.9.0",
     "disqus-react": "^1.1.5",
     "fuse.js": "^6.6.2",

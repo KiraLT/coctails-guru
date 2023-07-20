@@ -46,6 +46,32 @@ const Page: NextPage<Props> = ({ recipe }) => {
         setIsClient(typeof window !== 'undefined')
     }, [])
 
+    const ingredients = (
+        <div className="ingredients mt-4">
+            <h4>Ingredients</h4>
+            {Object.entries(recipe.data.ingredients).map(
+                ([ingredient, quantity]) => (
+                    <div
+                        className="custom-control custom-checkbox"
+                        key={ingredient}
+                    >
+                        <input
+                            type="checkbox"
+                            className="custom-control-input"
+                            id={`ingredient-${ingredient}`}
+                        />
+                        <label
+                            className="custom-control-label"
+                            htmlFor={`ingredient-${ingredient}`}
+                        >
+                            {formatQuantity(quantity)} {ingredient}
+                        </label>
+                    </div>
+                ),
+            )}
+        </div>
+    )
+
     return (
         <Layout
             title={recipe.data.name}
@@ -59,6 +85,24 @@ const Page: NextPage<Props> = ({ recipe }) => {
                             <div className="col-12 col-lg-8">
                                 <div className="receipe-headline my-5">
                                     <h2>{recipe.data.name}</h2>
+
+                                    <div
+                                        className="d-lg-none mb-3"
+                                        style={{
+                                            position: 'relative',
+                                            height: '200px',
+                                        }}
+                                    >
+                                        <Image
+                                            src={recipe.image}
+                                            alt=""
+                                            fill={true}
+                                            style={{
+                                                objectFit: 'cover',
+                                            }}
+                                        />
+                                    </div>
+
                                     {recipe.data.description && (
                                         <p>{recipe.data.description}</p>
                                     )}
@@ -73,7 +117,9 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                     </div>
                                 ))}
 
-                                <div className="mt-5">
+                                <div className="d-lg-none">{ingredients}</div>
+
+                                <div className="mt-4">
                                     {isClient && (
                                         <DiscussionEmbed
                                             shortname="cocktailsguru"
@@ -92,7 +138,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                         position: 'relative',
                                         height: '250px',
                                     }}
-                                    className="mb-3 mt-3"
+                                    className="mb-3 mt-3 d-none d-lg-block"
                                 >
                                     <Image
                                         src={recipe.image}
@@ -103,29 +149,8 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                         }}
                                     />
                                 </div>
-                                <div className="ingredients">
-                                    <h4>Ingredients</h4>
-                                    {Object.entries(
-                                        recipe.data.ingredients,
-                                    ).map(([ingredient, quantity]) => (
-                                        <div
-                                            className="custom-control custom-checkbox"
-                                            key={ingredient}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                className="custom-control-input"
-                                                id={`ingredient-${ingredient}`}
-                                            />
-                                            <label
-                                                className="custom-control-label"
-                                                htmlFor={`ingredient-${ingredient}`}
-                                            >
-                                                {ingredient}{' '}
-                                                {formatQuantity(quantity)}
-                                            </label>
-                                        </div>
-                                    ))}
+                                <div className="d-none d-lg-block">
+                                    {ingredients}
                                 </div>
                             </div>
                         </div>
