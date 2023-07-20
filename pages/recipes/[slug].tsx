@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage, GetStaticPaths } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
 import Image from 'next-image-export-optimizer'
-import { Metadata, ResolvingMetadata } from 'next'
+import { DiscussionEmbed } from 'disqus-react'
 
 import { Layout } from '../../components/layout'
 import {
@@ -10,6 +10,7 @@ import {
     getRecipeBySlug,
     Recipe,
 } from '../../controllers/recipes'
+import { useEffect, useState } from 'react'
 
 export interface Props {
     recipe: Recipe
@@ -39,6 +40,12 @@ export const getStaticPaths: GetStaticPaths<Params> = () => {
 }
 
 const Page: NextPage<Props> = ({ recipe }) => {
+    const [isClient, setIsClient] = useState(false)
+
+    useEffect(() => {
+        setIsClient(typeof window !== 'undefined')
+    }, [])
+
     return (
         <Layout
             title={recipe.data.name}
@@ -65,6 +72,19 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                         <p>{v}</p>
                                     </div>
                                 ))}
+
+                                <div className="mt-5">
+                                    {isClient && (
+                                        <DiscussionEmbed
+                                            shortname="cocktailsguru"
+                                            config={{
+                                                url: location.href,
+                                                identifier: recipe.data.name,
+                                                title: recipe.data.name,
+                                            }}
+                                        />
+                                    )}
+                                </div>
                             </div>
                             <div className="col-12 col-lg-4">
                                 <div

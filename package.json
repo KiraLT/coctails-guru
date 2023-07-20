@@ -14,6 +14,7 @@
     "@emotion/styled": "^11.11.0",
     "bootstrap": "^5.3.0",
     "common-stuff": "^1.9.0",
+    "disqus-react": "^1.1.5",
     "fuse.js": "^6.6.2",
     "next": "13.4.10",
     "qrcode.react": "^3.1.0",
@@ -37,7 +38,7 @@
     "typescript": "5.1.6"
   },
   "prettier": {
-      "semi": false,
-      "singleQuote": true
+    "semi": false,
+    "singleQuote": true
   }
 }

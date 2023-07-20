@@ -104,8 +104,8 @@ export const recipes: Record<string, Recipe> = {
         data: recipe15,
         image: image15,
     },
-    "aperol-spritz": {
+    'aperol-spritz': {
         data: recipe16,
         image: image16,
-    }
+    },
 }
