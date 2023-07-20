@@ -1,0 +1,16 @@
+{
+    "name": "Aperol Spritz",
+    "description": "Originating from Italy, the Aperol Spritz is a popular aperitif known for its unique, bitter-sweet taste and vibrant orange color. This refreshing cocktail features a simple mix of Aperol, Prosecco, and soda water, typically garnished with a slice of orange. Served over ice in a wine glass, the Aperol Spritz is the embodiment of a relaxed, sunny afternoon in Italy.",
+    "instructions": [
+        "Fill a wine glass with ice cubes.",
+        "First pour in the Aperol, then the Prosecco.",
+        "Add a splash of soda water.",
+        "Gently stir to mix.",
+        "Garnish with a slice of orange."
+    ],
+    "ingredients": {
+        "aperol": 2,
+        "prosecco": 3,
+        "club soda": 1
+    }
+}

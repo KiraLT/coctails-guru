@@ -30,6 +30,8 @@ import image14 from './mai-tai/image.png'
 import recipe14 from './mai-tai/recipe.json'
 import image15 from './daiquiri/image.png'
 import recipe15 from './daiquiri/recipe.json'
+import image16 from './aperol-spritz/image.png'
+import recipe16 from './aperol-spritz/recipe.json'
 
 export interface Recipe {
     image: StaticImageData
@@ -102,4 +104,8 @@ export const recipes: Record<string, Recipe> = {
         data: recipe15,
         image: image15,
     },
+    "aperol-spritz": {
+        data: recipe16,
+        image: image16,
+    }
 }
