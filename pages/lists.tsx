@@ -33,18 +33,25 @@ const Lists: NextPage = () => {
                     {!!lists.result?.length && (
                         <ListGroup variant="flush">
                             {lists.result?.map((v) => (
-                                <ListGroup.Item style={{cursor: 'pointer'}} key={v.name} >
+                                <ListGroup.Item
+                                    style={{ cursor: 'pointer' }}
+                                    key={v.name}
+                                >
                                     <Row>
                                         <Link href={v.url}>
-                                            <Col className='justify-content-center align-self-center'>
+                                            <Col className="justify-content-center align-self-center">
                                                 <span className="text-truncate">
                                                     {v.name}
-                                                </span>
-                                                {' '}
-                                                <small className='text-muted'>({v.recipes.length} recipes)</small>
+                                                </span>{' '}
+                                                <small className="text-muted">
+                                                    ({v.recipes.length} recipes)
+                                                </small>
                                             </Col>
                                         </Link>
-                                        <Col className='text-right justify-content-center align-self-center' md={'auto'}>
+                                        <Col
+                                            className="text-right justify-content-center align-self-center"
+                                            md={'auto'}
+                                        >
                                             <Button
                                                 variant="outline-danger"
                                                 onClick={() => {
