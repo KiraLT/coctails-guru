@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-image-export-optimizer",
+    "build": "next-sitemap && next build && next-image-export-optimizer",
     "start": "serve out",
     "lint": "next lint",
     "prettify": "prettier --write \"{components,controllers,pages,styles}/**/*.{js,ts,tsx,json,css,scss,yaml}\""
@@ -31,6 +31,7 @@
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
     "next-image-export-optimizer": "^1.8.2",
+    "next-sitemap": "^4.1.8",
     "prettier": "^3.0.0",
     "serve": "^14.2.0",
     "sharp": "^0.32.3",
