@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
-import { Alert, Badge, Button, Col, ListGroup, Row } from 'react-bootstrap'
+import { Alert, Button, Col, ListGroup, Row } from 'react-bootstrap'
 import Link from 'next/link'
 import { useAsync } from 'react-async-hook'
 
 import { Layout } from '../components/layout'
-import { List } from '../controllers/lists'
+import { deleteListByName, getAllLists, getListUrl } from '../controllers/lists'
 
 const Lists: NextPage = () => {
-    const lists = useAsync(async () => List.getAll(), [])
+    const lists = useAsync(async () => getAllLists(), [])
 
     return (
         <Layout title="Search">
@@ -18,7 +18,7 @@ const Lists: NextPage = () => {
                             <h1>My lists</h1>
                         </Col>
                         <Col sm={4} className="text-right">
-                            <Link href={new List().url} passHref>
+                            <Link href="list" passHref>
                                 <Button variant="outline-info">
                                     Create new list
                                 </Button>
@@ -33,21 +33,18 @@ const Lists: NextPage = () => {
                     {!!lists.result?.length && (
                         <ListGroup variant="flush">
                             {lists.result?.map((v) => (
-                                <ListGroup.Item
-                                    style={{ cursor: 'pointer' }}
-                                    key={v.name}
-                                >
+                                <ListGroup.Item key={v.name}>
                                     <Row>
-                                        <Link href={v.url}>
-                                            <Col className="justify-content-center align-self-center">
+                                        <Col className="justify-content-center align-self-center">
+                                            <Link href={getListUrl(v)}>
                                                 <span className="text-truncate">
                                                     {v.name}
                                                 </span>{' '}
+                                                </Link>
                                                 <small className="text-muted">
                                                     ({v.recipes.length} recipes)
                                                 </small>
-                                            </Col>
-                                        </Link>
+                                        </Col>
                                         <Col
                                             className="text-right justify-content-center align-self-center"
                                             md={'auto'}
@@ -55,7 +52,7 @@ const Lists: NextPage = () => {
                                             <Button
                                                 variant="outline-danger"
                                                 onClick={() => {
-                                                    v.delete()
+                                                    deleteListByName(v.name)
                                                     lists.execute()
                                                 }}
                                             >

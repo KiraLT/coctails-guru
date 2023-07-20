@@ -1,0 +1,13 @@
+{
+    "name": "Gin & Tonic",
+    "description": "A product of British colonial history, the Gin & Tonic was born in the 19th century as a medicinal measure against malaria, thanks to the quinine found in tonic water. Today, it stands as a quintessential cocktail that perfectly balances the herbaceous character of gin with the bitter-sweet profile of tonic water. Garnished with a slice of lemon or lime, this simple yet elegant drink is a testament to the beauty of two-component cocktails.",
+    "instructions": [
+        "In a highball glass filled with ice cubes, pour the gin, then top with tonic.",
+        "Gently stir to combine, but not so much so that you lose carbonation.",
+        "Garnish with a lime wedge."
+    ],
+    "ingredients": {
+        "gin": 2,
+        "tonic": 6
+    }
+}

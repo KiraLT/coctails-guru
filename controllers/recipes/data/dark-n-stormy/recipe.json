@@ -1,0 +1,15 @@
+{
+    "name": "Dark 'N' Stormy",
+    "description": "Originating from Bermuda, the Dark 'N' Stormy is steeped in seafaring history and carries the evocative power of a maritime storm. This robust cocktail features dark rum, known for its deep, molasses-rich flavor, floating atop spicy ginger beer. It's this dramatic interplay, akin to storm clouds brooding over turbulent seas, that gives the cocktail its name. Finished with a splash of lime juice for a fresh kick, the Dark 'N' Stormy offers a captivating flavor journey with every sip.",
+    "instructions": [
+        "Fill a glass with ice cubes.",
+        "Pour ginger beer into the glass.", "Pour rum into the glass- if you pour carefully, the rum should float atop the ginger beer.",
+        "Serve cold and stir before drinking.",
+        "Garnish with a lime wedge."
+    ],
+    "ingredients": {
+        "spiced rum": 2,
+        "ginger beer": 4,
+        "lime juice": 0.5
+    }
+}

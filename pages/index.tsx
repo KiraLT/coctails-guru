@@ -3,10 +3,10 @@ import { useMemo } from 'react'
 
 import { Layout } from '../components/layout'
 import { Recipes } from '../components/recipes'
-import { Recipe } from '../controllers/recipes'
+import { getAllRecipesWithMeta } from '../controllers/recipes'
 
 const Home: NextPage = () => {
-    const recipes = useMemo(() => Recipe.getAll(), [])
+    const recipes = useMemo(() => getAllRecipesWithMeta(), [])
 
     return (
         <Layout title="Signature Cocktails">

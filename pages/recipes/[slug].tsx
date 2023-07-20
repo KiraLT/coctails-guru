@@ -1,12 +1,12 @@
 import type { GetStaticProps, NextPage, GetStaticPaths } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
-import Image from 'next/image'
+import Image from 'next-image-export-optimizer'
 
 import { Layout } from '../../components/layout'
-import { RawRecipe, Recipe } from '../../controllers/recipes'
+import { formatQuantity, getAllRecipeSlugs, getRecipeBySlug, Recipe } from '../../controllers/recipes'
 
 export interface Props {
-    rawRecipe: RawRecipe
+    recipe: Recipe
 }
 
 export interface Params extends ParsedUrlQuery {
@@ -16,41 +16,35 @@ export interface Params extends ParsedUrlQuery {
 export const getStaticProps: GetStaticProps<Props, Params> = (context) => {
     return {
         props: {
-            rawRecipe: Recipe.fromSlug(context.params?.slug!)!.serialize(),
+            recipe: getRecipeBySlug(context.params?.slug!)!,
         },
     }
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = () => {
     return {
-        paths: Recipe.getAll().map((v) => ({
+        paths: getAllRecipeSlugs().map((v) => ({
             params: {
-                slug: v.slug,
+                slug: v,
             },
         })),
         fallback: false,
     }
 }
 
-const Page: NextPage<Props> = ({ rawRecipe }) => {
-    const recipe = new Recipe(rawRecipe)
-
+const Page: NextPage<Props> = ({ recipe }) => {
     return (
-        <Layout title={recipe.name}>
+        <Layout title={recipe.data.name}>
             <>
                 <div className="receipe-content-area">
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-lg-8">
                                 <div className="receipe-headline my-5">
-                                    <h2>{recipe.name}</h2>
-                                    {/* <div className="receipe-duration">
-                    <h6>Prep: 15 mins</h6>
-                    <h6>Cook: 30 mins</h6>
-                    <h6>Yields: 8 Servings</h6>
-                  </div> */}
+                                    <h2>{recipe.data.name}</h2>
+                                    {recipe.data.description && <p>{recipe.data.description}</p>}
                                 </div>
-                                {recipe.instructions.map((v, i) => (
+                                {recipe.data.instructions.map((v, i) => (
                                     <div
                                         className="single-preparation-step d-flex mb-1"
                                         key={i}
@@ -71,27 +65,29 @@ const Page: NextPage<Props> = ({ rawRecipe }) => {
                                     <Image
                                         src={recipe.image}
                                         alt=""
-                                        layout="fill"
-                                        objectFit="cover"
+                                        fill={true}
+                                        style={{
+                                            objectFit: 'cover',
+                                        }}
                                     />
                                 </div>
                                 <div className="ingredients">
                                     <h4>Ingredients</h4>
-                                    {recipe.ingredients.map((ingredient, i) => (
+                                    {Object.entries(recipe.data.ingredients).map(([ingredient, quantity]) => (
                                         <div
                                             className="custom-control custom-checkbox"
-                                            key={i}
+                                            key={ingredient}
                                         >
                                             <input
                                                 type="checkbox"
                                                 className="custom-control-input"
-                                                id={`ingredient-${i}`}
+                                                id={`ingredient-${ingredient}`}
                                             />
                                             <label
                                                 className="custom-control-label"
-                                                htmlFor={`ingredient-${i}`}
+                                                htmlFor={`ingredient-${ingredient}`}
                                             >
-                                                {ingredient.getRepresentation()}
+                                                {ingredient} {formatQuantity(quantity)}
                                             </label>
                                         </div>
                                     ))}

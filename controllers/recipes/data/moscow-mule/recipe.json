@@ -1,0 +1,15 @@
+{
+    "name": "Moscow Mule",
+    "description": "Born in 1941 Los Angeles out of a collaboration between a vodka distributor and a ginger beer maker, the Moscow Mule is a testament to marketing genius. This Cold War era cocktail balances the clear, smooth strength of vodka with the spicy fizz of ginger beer, coupled with a tangy squeeze of lime. Served in its iconic copper mug to keep the drink ice-cold, the Moscow Mule offers a refreshing kick that's both bold and historically intriguing.",
+    "instructions": [
+        "Fill a copper mug or similarly sized glass with ice.",
+        "Pour in the vodka and lime juice.",
+        "Fill the glass with ginger beer and gently swirl it with a spoon once to mix.",
+        "Garnish with a lime lime wheel and mint."
+    ],
+    "ingredients": {
+        "vodka": 2,
+        "ginger beer": 4,
+        "lemon juice": 0.5
+    }
+}

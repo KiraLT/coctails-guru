@@ -1,0 +1,16 @@
+{
+    "name": "Mojito",
+    "description": "Step into a Caribbean oasis with this traditional Cuban cocktail. The Mojito combines white rum's smoothness with the vibrant acidity of lime juice and the refreshing coolness of mint, all balanced by a touch of sweetness from cane sugar.",
+    "instructions": [
+        "Drop lime wedges, mint leaves and simple syrup into base of glass. Muddle well.",
+        "Add ice and rum before topping with club soda.",
+        "Garnish with a lime wedge and a mint sprig."
+    ],
+    "ingredients": {
+        "mint leaves": 10,
+        "lime": 0.5,
+        "simple syrup": 0.5,
+        "white rum": 0.5,
+        "club soda": 4
+    }
+}

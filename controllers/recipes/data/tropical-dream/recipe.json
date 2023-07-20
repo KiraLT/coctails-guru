@@ -1,0 +1,14 @@
+{
+    "name": "Tropical Dream",
+    "description": "Although its origins are not as well-documented as some classic cocktails, the Tropical Dream is a recent addition to the mixology world that transports you to an exotic island getaway. This cocktail beautifully amalgamates the tropical flavors of pineapple and coconut rum, accentuated by a dash of blue curaçao that lends a vibrant azure hue. Served over ice and garnished with a pineapple slice or cherry, the Tropical Dream is a feast for both the eyes and the palate, bringing the essence of a tropical vacation to your glass.",
+    "instructions": [
+        "Shake all ingredients with ice.",
+        "Strain into a cocktail glass.",
+        "Garnish with a cherry."
+    ],
+    "ingredients": {
+        "blue curaçao": 1,
+        "coconut rum": 2,
+        "pineapple juice": 5
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Mexican Mule",
+    "description": "A Latin twist on the 1940s classic Moscow Mule, the Mexican Mule swaps vodka for tequila, native to Mexico's Jalisco region. Combining the earthy tequila with tart lime and spicy ginger beer, this cocktail is a refreshing delight served in a traditional cold-preserving copper mug. Experience a kick of spice with every sip.",
+    "instructions": [
+        "Rim edge of glass in lime juice and coarse salt combined with chilli.",
+        "Fill glass with ice and pour over tequila and lime juice.",
+        "Top with grapefruit soda and garnish with a grapefruit wedge."
+    ],
+    "ingredients": {
+        "silver tequila": 1.5,
+        "ginger beer": 3,
+        "lime juice": 0.5
+    }
+}

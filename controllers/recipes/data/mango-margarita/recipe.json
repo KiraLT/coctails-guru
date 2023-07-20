@@ -1,0 +1,16 @@
+{
+    "name": "Mango Margarita",
+    "description": "Infused with the lusciousness of tropical indulgence, the Mango Margarita takes the classic Margarita to new heights. By blending the smoothness of tequila with the tropical sweetness of mango puree, this cocktail creates a harmonious fusion of flavors. Finished with a touch of lime juice for a hint of tang, the Mango Margarita is a refreshing and fruity twist on a beloved classic, transporting you to a sun-soaked paradise with every sip.",
+    "instructions": [
+        "Rim edge of margarita glass in lime juice and coarse salt combined with chilli.",
+        "Mix ingredients in the mixer with ice.",
+        "Garnish with a lime wheel."
+    ],
+    "ingredients": {
+        "silver tequila": 2,
+        "orange liqueur": 1,
+        "lime juice": 0.5,
+        "agave nectar": 2,
+        "mango": 5
+    }
+  }

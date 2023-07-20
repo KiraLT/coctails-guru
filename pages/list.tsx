@@ -16,9 +16,9 @@ import { QRCodeCanvas } from 'qrcode.react'
 import { Layout } from '../components/layout'
 import { Recipes } from '../components/recipes'
 import { useRouter } from 'next/router'
-import { List } from '../controllers/lists'
-import { Recipe } from '../controllers/recipes'
+import { List, getListFromUrlQuery, getListUrl, replaceList } from '../controllers/lists'
 import Fuse from 'fuse.js'
+import { getAllRecipesWithMeta, getRecipesWithMetaByIds } from '../controllers/recipes'
 
 const ListPage: NextPage = () => {
     const router = useRouter()
@@ -26,8 +26,12 @@ const ListPage: NextPage = () => {
     const [editOpen, setEditOpen] = useState(false)
 
     const list = useMemo(() => {
-        return List.fromUrlQuery(router.query)
+        return getListFromUrlQuery(router.query)
     }, [router.query])
+
+    const recipes = useMemo(() => {
+        return getRecipesWithMetaByIds(list.recipes)
+    }, [list.recipes])
 
     return (
         <Layout title="Search">
@@ -59,7 +63,7 @@ const ListPage: NextPage = () => {
                         </Alert>
                     )}
                     {!!list.recipes.length && (
-                        <Recipes recipes={list.recipes} />
+                        <Recipes recipes={recipes} />
                     )}
                 </div>
                 <Modal show={shareOpen} onHide={() => setShareOpen(false)}>
@@ -78,9 +82,8 @@ const ListPage: NextPage = () => {
                         <EditListPage
                             list={list}
                             onSave={(v) => {
-                                list.delete()
-                                v.save()
-                                router.replace(v.url)
+                                replaceList(list, v)
+                                router.replace(getListUrl(v))
                                 setEditOpen(false)
                             }}
                         />
@@ -102,11 +105,11 @@ function EditListPage({
     const [addMode, setAddMode] = useState(false)
     const [query, setQuery] = useState('')
 
-    const allRecipes = useMemo(() => Recipe.getAll(), [])
+    const allRecipes = useMemo(() => getAllRecipesWithMeta(), [])
 
     const fuse = useMemo(() => {
         return new Fuse(allRecipes, {
-            keys: ['name'],
+            keys: ['data.name'],
         })
     }, [allRecipes])
 
@@ -115,8 +118,12 @@ function EditListPage({
             ? fuse.search(query).map((v) => v.item)
             : allRecipes
 
-        return result.filter((v) => !list.recipes.find((r) => v.id == r.id))
+        return result.filter((v) => !list.recipes.includes(v.meta.id))
     }, [fuse, query, list, allRecipes])
+
+    const listRecipes = useMemo(() => {
+        return getRecipesWithMetaByIds(list.recipes)
+    }, [list.recipes])
 
     return (
         <>
@@ -124,7 +131,7 @@ function EditListPage({
                 type="text"
                 placeholder="Unnamed"
                 defaultValue={list.name}
-                onChange={(event) => setList(list.setName(event.target.value))}
+                onChange={(event) => setList({ ...list, name: event.target.value })}
                 className="mb-3"
             />
             {addMode ? (
@@ -155,11 +162,11 @@ function EditListPage({
                         >
                             {recipes.map((v) => (
                                 <ListGroup.Item
-                                    key={v.id}
-                                    onClick={() => setList(list.addRecipe(v))}
+                                    key={v.meta.id}
+                                    onClick={() => setList({ ...list, recipes: [...list.recipes, v.meta.id] })}
                                     style={{ cursor: 'pointer' }}
                                 >
-                                    {v.name}
+                                    {v.data.name}
                                 </ListGroup.Item>
                             ))}
                         </ListGroup>
@@ -177,7 +184,7 @@ function EditListPage({
                     >
                         Add recipe
                     </Button>
-                    {!!list.recipes.length && (
+                    {!!listRecipes.length && (
                         <ListGroup
                             variant="flush"
                             style={{
@@ -185,10 +192,10 @@ function EditListPage({
                                 overflowY: 'auto',
                             }}
                         >
-                            {list.recipes.map((v) => (
-                                <ListGroup.Item key={v.id}>
+                            {listRecipes.map((v) => (
+                                <ListGroup.Item key={v.meta.id}>
                                     <Row>
-                                        <Col>{v.name}</Col>
+                                        <Col>{v.data.name}</Col>
                                         <Col
                                             className="text-right justify-content-center align-self-center"
                                             md={'auto'}
@@ -196,9 +203,7 @@ function EditListPage({
                                             <Button
                                                 variant="outline-danger"
                                                 onClick={() => {
-                                                    setList(
-                                                        list.removeRecipe(v)
-                                                    )
+                                                    setList({ ...list, recipes: list.recipes.filter((r) => r != v.meta.id)})
                                                 }}
                                             >
                                                 Delete

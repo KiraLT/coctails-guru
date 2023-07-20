@@ -34,4 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-/raw
+# generated images
+public/images/next-image-export-optimizer-hashes.json
+public/nextImageExportOptimizer

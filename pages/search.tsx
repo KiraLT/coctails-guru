@@ -5,7 +5,7 @@ import { Alert } from 'react-bootstrap'
 import Fuse from 'fuse.js'
 
 import { Layout } from '../components/layout'
-import { Recipe } from '../controllers/recipes'
+import { getAllRecipesWithMeta } from '../controllers/recipes'
 import { Recipes } from '../components/recipes'
 
 const Home: NextPage = () => {
@@ -15,8 +15,8 @@ const Home: NextPage = () => {
     const query = typeof q === 'string' ? q : ''
 
     const fuse = useMemo(() => {
-        return new Fuse(Recipe.getAll(), {
-            keys: ['name'],
+        return new Fuse(getAllRecipesWithMeta(), {
+            keys: ['data.name'],
         })
     }, [])
 
