@@ -1,12 +1,12 @@
-import type { NextPage } from 'next'
-import { useMemo } from 'react'
+import type { NextPage } from "next";
+import { useMemo } from "react";
 
-import { Layout } from '../components/layout'
-import { Recipes } from '../components/recipes'
-import { getAllRecipesWithMeta } from '../controllers/recipes'
+import { Layout } from "../components/layout";
+import { Recipes } from "../components/recipes";
+import { getAllRecipesWithMeta } from "../controllers/recipes";
 
 const Home: NextPage = () => {
-    const recipes = useMemo(() => getAllRecipesWithMeta(), [])
+    const recipes = useMemo(() => getAllRecipesWithMeta(), []);
 
     return (
         <Layout title="Signature Cocktails">
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
                 </div>
             </section>
         </Layout>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
