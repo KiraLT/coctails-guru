@@ -46,7 +46,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
         setIsClient(typeof window !== 'undefined')
     }, [])
 
-    const ingredients = (
+    const Ingredients = ({ name }: { name: string }) => (
         <div className="ingredients mt-4">
             <h4>Ingredients</h4>
             {Object.entries(recipe.data.ingredients).map(
@@ -58,11 +58,11 @@ const Page: NextPage<Props> = ({ recipe }) => {
                         <input
                             type="checkbox"
                             className="custom-control-input"
-                            id={`ingredient-${ingredient}`}
+                            id={`ingredient-${name}-${ingredient}`}
                         />
                         <label
                             className="custom-control-label"
-                            htmlFor={`ingredient-${ingredient}`}
+                            htmlFor={`ingredient-${name}-${ingredient}`}
                         >
                             {formatQuantity(quantity)} {ingredient}
                         </label>
@@ -107,6 +107,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                         <p>{recipe.data.description}</p>
                                     )}
                                 </div>
+
                                 {recipe.data.instructions.map((v, i) => (
                                     <div
                                         className="single-preparation-step d-flex mb-1"
@@ -117,7 +118,14 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                     </div>
                                 ))}
 
-                                <div className="d-lg-none">{ingredients}</div>
+                                {!!recipe.data.tips?.length && <div className="mt-4">
+                                    <h4>Tips & Tricks</h4>
+                                    {recipe.data.tips.map((v, i) => <p key={i}>
+                                        {v}
+                                    </p>)}
+                                </div>}
+
+                                <div className="d-lg-none">{<Ingredients name="mobile" />}</div>
 
                                 <div className="mt-4">
                                     {isClient && (
@@ -150,7 +158,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                     />
                                 </div>
                                 <div className="d-none d-lg-block">
-                                    {ingredients}
+                                    {<Ingredients name="desktop" />}
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,19 @@
+{
+    "name": "Amaretto Sour",
+    "description": "The Amaretto Sour is a classic cocktail that originated in the 1970s. Known for its sweet, tangy, and slightly nutty flavor, it's a delightful blend of amaretto, a sweet Italian almond-flavored liqueur, and the tartness of fresh lemon juice. It's typically garnished with a cherry and/or orange slice and served over ice, offering a refreshingly balanced taste.",
+    "instructions": [
+        "Combine the amaretto, lemon juice, and simple syrup in a shaker with ice.",
+        "Shake well until chilled.",
+        "Strain the mix into an ice-filled glass.",
+        "Garnish with a cherry and an orange slice."
+    ],
+    "ingredients": {
+        "amaretto": 1.5,
+        "lime juice": 1,
+        "simple syrup": 0.3
+    },
+    "tips": [
+        "You can add a splash of bourbon or an egg white for a different take on this classic cocktail.",
+        "Chill the glass before serving for a colder drink."
+    ]
+}
