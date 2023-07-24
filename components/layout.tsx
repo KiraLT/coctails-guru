@@ -37,7 +37,7 @@ export function Layout<T extends Thing>({
                 {!!image && <meta name="og:image" content={image} />}
                 {!!schema && (
                     <script type="application/ld+json">
-                        {JSON.stringify({})}
+                        {JSON.stringify(schema)}
                     </script>
                 )}
             </Head>
