@@ -7,7 +7,7 @@ import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
 import type { WithContext, Thing } from 'schema-dts'
 
-import logo from '../public/logo.png'
+import logo from '../public/logo.svg'
 
 export function Layout<T extends Thing>({
     children,
@@ -54,6 +54,7 @@ export function Layout<T extends Thing>({
                                         alt=""
                                         width={200}
                                         height={59}
+                                        unoptimized={true}
                                     />
                                 </a>
                             </Link>
