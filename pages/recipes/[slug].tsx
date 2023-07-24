@@ -151,9 +151,9 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                 </div>
 
                                 <div className="mt-4">
-                                    {process.env.DISQUS_NAME && isClient && (
+                                    {process.env.NEXT_PUBLIC_DISQUS_NAME && isClient && (
                                         <DiscussionEmbed
-                                            shortname={process.env.DISQUS_NAME}
+                                            shortname={process.env.NEXT_PUBLIC_DISQUS_NAME}
                                             config={{
                                                 url: location.href,
                                                 identifier: recipe.data.name,
