@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next-image-export-optimizer'
 import Link from 'next/link'
+import Script from 'next/script'
 import { useRouter } from 'next/router'
 import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
@@ -107,6 +108,17 @@ export function Layout<T extends Thing>({
                 </Navbar>
             </Container>
             {children}
+
+            {!!process.env.GA_ID && <Script src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_ID}`} />}
+            {!!process.env.GA_ID && <Script id="google-analytics">
+                {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+        
+                gtag('config', '${process.env.GA_ID}');
+                `}
+            </Script>}
         </>
     )
 }

@@ -1,6 +1,6 @@
 {
     "name": "Espresso Martini",
-    "description": "The Espresso Martini, a stimulating blend of vodka, coffee liqueur, and freshly brewed espresso, was invented in the 1980s by London bartender Dick Bradsell. Conceived as a wake-up call for a patron requesting a drink that would "wake her up and mess her up", it quickly gained popularity. Today, its blend of boozy warmth and caffeinated kick makes it a beloved after-dinner cocktail and party pick-me-up.",
+    "description": "The Espresso Martini, a stimulating blend of vodka, coffee liqueur, and freshly brewed espresso, was invented in the 1980s by London bartender Dick Bradsell. Conceived as a wake-up call for a patron requesting a drink that would \"wake her up and mess her up\", it quickly gained popularity. Today, its blend of boozy warmth and caffeinated kick makes it a beloved after-dinner cocktail and party pick-me-up.",
     "instructions": [
         "Combine all ingredients in a shaker with ice.",
         "Shake vigorously to create froth.",
@@ -11,7 +11,7 @@
         "vodka": 1.5,
         "coffee liqueur": 1,
         "espresso": 1,
-        "Simple syrup": 0.5
+        "simple syrup": 0.5
     },
     "tips": [
         "For a different twist, try replacing vodka with whiskey, such as bourbon or rye. This changes the flavor profile, offering a unique take on the classic Espresso Martini.",

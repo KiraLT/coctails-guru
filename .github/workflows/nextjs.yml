@@ -52,6 +52,9 @@ jobs:
 
       - name: Build with Next.js
         run: npm run build
+        env:
+          DISQUS_NAME: ${{ vars.DISQUS_NAME }}
+          GA_ID: ${{ vars.GA_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

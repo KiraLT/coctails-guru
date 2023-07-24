@@ -3,6 +3,7 @@ import type { ParsedUrlQuery } from 'querystring'
 import Image from 'next-image-export-optimizer'
 import { DiscussionEmbed } from 'disqus-react'
 import type { Recipe as RecipeSchema } from 'schema-dts'
+import { titleCase } from 'common-stuff'
 
 import { Layout } from '../../components/layout'
 import {
@@ -65,7 +66,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                             className="custom-control-label"
                             htmlFor={`ingredient-${name}-${ingredient}`}
                         >
-                            {formatQuantity(quantity)} {ingredient}
+                            {formatQuantity(quantity)} {titleCase(ingredient)}
                         </label>
                     </div>
                 ),
@@ -88,7 +89,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                 recipeCategory: ['Drink', 'Cocktail'],
                 recipeIngredient: Object.entries(recipe.data.ingredients).map(
                     ([ingredient, quantity]) =>
-                        `${formatQuantity(quantity)} ${ingredient}`,
+                        `${formatQuantity(quantity)} ${titleCase(ingredient)}`,
                 ),
                 recipeInstructions: recipe.data.instructions.map((v) => ({
                     '@type': 'HowToStep',
@@ -101,7 +102,7 @@ const Page: NextPage<Props> = ({ recipe }) => {
                     <div className="container">
                         <div className="row">
                             <div className="col-12 col-lg-8">
-                                <div className="receipe-headline my-5">
+                                <div className="receipe-headline my-4">
                                     <h2>{recipe.data.name}</h2>
 
                                     <div
@@ -150,9 +151,9 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                 </div>
 
                                 <div className="mt-4">
-                                    {isClient && (
+                                    {process.env.DISQUS_NAME && isClient && (
                                         <DiscussionEmbed
-                                            shortname="cocktailsguru"
+                                            shortname={process.env.DISQUS_NAME}
                                             config={{
                                                 url: location.href,
                                                 identifier: recipe.data.name,
