@@ -114,5 +114,5 @@ export const recipes: Record<string, Recipe> = {
     'amaretto-sour': {
         data: recipe17,
         image: image17,
-    }
+    },
 }

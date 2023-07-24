@@ -9,7 +9,10 @@ const Home: NextPage = () => {
     const recipes = useMemo(() => getAllRecipesWithMeta(), [])
 
     return (
-        <Layout title="Signature Cocktails">
+        <Layout
+            title="Signature Cocktails"
+            description="Welcome to our home of mixology, where Signature Cocktails take center stage. Explore our curated selection of exceptional cocktail recipes, discover new favorites, and master the art of cocktail creation. Step into a world of flavor and innovation today!"
+        >
             <section className="best-receipe-area">
                 <div className="container">
                     <div className="row">

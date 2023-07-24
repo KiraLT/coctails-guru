@@ -2,6 +2,7 @@ import type { GetStaticProps, NextPage, GetStaticPaths } from 'next'
 import type { ParsedUrlQuery } from 'querystring'
 import Image from 'next-image-export-optimizer'
 import { DiscussionEmbed } from 'disqus-react'
+import type { Recipe as RecipeSchema } from 'schema-dts'
 
 import { Layout } from '../../components/layout'
 import {
@@ -73,10 +74,27 @@ const Page: NextPage<Props> = ({ recipe }) => {
     )
 
     return (
-        <Layout
+        <Layout<RecipeSchema>
             title={recipe.data.name}
             description={recipe.data.description}
             image={recipe.image.src}
+            schema={{
+                '@context': 'https://schema.org',
+                '@type': 'Recipe',
+                headline: '',
+                name: recipe.data.name,
+                image: [recipe.image.src],
+                description: recipe.data.description,
+                recipeCategory: ['Drink', 'Cocktail'],
+                recipeIngredient: Object.entries(recipe.data.ingredients).map(
+                    ([ingredient, quantity]) =>
+                        `${formatQuantity(quantity)} ${ingredient}`,
+                ),
+                recipeInstructions: recipe.data.instructions.map((v) => ({
+                    '@type': 'HowToStep',
+                    text: v,
+                })),
+            }}
         >
             <>
                 <div className="receipe-content-area">
@@ -118,14 +136,18 @@ const Page: NextPage<Props> = ({ recipe }) => {
                                     </div>
                                 ))}
 
-                                {!!recipe.data.tips?.length && <div className="mt-4">
-                                    <h4>Tips & Tricks</h4>
-                                    {recipe.data.tips.map((v, i) => <p key={i}>
-                                        {v}
-                                    </p>)}
-                                </div>}
+                                {!!recipe.data.tips?.length && (
+                                    <div className="mt-4">
+                                        <h4>Tips & Tricks</h4>
+                                        {recipe.data.tips.map((v, i) => (
+                                            <p key={i}>{v}</p>
+                                        ))}
+                                    </div>
+                                )}
 
-                                <div className="d-lg-none">{<Ingredients name="mobile" />}</div>
+                                <div className="d-lg-none">
+                                    {<Ingredients name="mobile" />}
+                                </div>
 
                                 <div className="mt-4">
                                     {isClient && (

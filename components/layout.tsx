@@ -4,18 +4,22 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
+import type { WithContext, Thing } from 'schema-dts'
 
 import logo from '../public/logo.png'
 
-export function Layout({
+export function Layout<T extends Thing>({
     children,
     title,
     description,
     image,
+    schema,
 }: {
     title: string
     description?: string
+    tags?: string
     image?: string
+    schema?: WithContext<T>
     children: JSX.Element
 }): React.ReactElement {
     const router = useRouter()
@@ -27,10 +31,15 @@ export function Layout({
             <Head>
                 <title>{title}</title>
                 <link rel="icon" href="/favicon.ico" />
-                {description && (
+                {!!description && (
                     <meta name="description" content={description} />
                 )}
-                {image && <meta name="og:image" content={image} />}
+                {!!image && <meta name="og:image" content={image} />}
+                {!!schema && (
+                    <script type="application/ld+json">
+                        {JSON.stringify({})}
+                    </script>
+                )}
             </Head>
 
             <Container className="mt-5 mb-3">

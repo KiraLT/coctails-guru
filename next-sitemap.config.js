@@ -3,5 +3,6 @@ module.exports = {
     output: 'export',
     siteUrl: 'https://cocktailsguru.me',
     generateRobotsTxt: true,
-    generateIndexSitemap: false
+    generateIndexSitemap: false,
+    exclude: ['404']
 }

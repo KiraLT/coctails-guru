@@ -42,7 +42,10 @@ const ListPage: NextPage = () => {
     }, [list.recipes])
 
     return (
-        <Layout title="Search">
+        <Layout
+            title="Created/edit list"
+            description="Create your unique cocktail recipe lists, share your mixology passion, and inspire others. Our 'Create and Share Cocktails' page lets you craft personalized cocktail lists to share with the world. Start your mixology journey with us today!"
+        >
             <section className="best-receipe-area">
                 <div className="container">
                     <Row className="mb-3">

@@ -10,7 +10,10 @@ const Lists: NextPage = () => {
     const lists = useAsync(async () => getAllLists(), [])
 
     return (
-        <Layout title="Search">
+        <Layout
+            title="All lists"
+            description="Discover, explore, and manage your custom-made cocktail recipes with ease. Our 'My Cocktail Lists' page allows you to access all your favorite cocktail creations in one place. Join us to add a dash of flavor to your mixology skills."
+        >
             <section className="best-receipe-area">
                 <div className="container">
                     <Row className="mb-3">

@@ -21,7 +21,8 @@
     "react-async-hook": "^4.0.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.10.1"
+    "react-icons": "^4.10.1",
+    "schema-dts": "^1.1.2"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
