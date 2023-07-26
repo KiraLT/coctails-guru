@@ -4,5 +4,6 @@ module.exports = {
     siteUrl: 'https://cocktailsguru.me',
     generateRobotsTxt: true,
     generateIndexSitemap: false,
+    trailingSlashes: true,
     exclude: ['404']
 }
