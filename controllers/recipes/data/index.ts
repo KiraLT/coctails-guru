@@ -34,6 +34,10 @@ import image16 from './aperol-spritz/image.png'
 import recipe16 from './aperol-spritz/recipe.json'
 import image17 from './amaretto-sour/image.png'
 import recipe17 from './amaretto-sour/recipe.json'
+import image18 from './porn-star-martini/image.png'
+import recipe18 from './porn-star-martini/recipe.json'
+import image19 from './passion-fruit-fizz/image.png'
+import recipe19 from './passion-fruit-fizz/recipe.json'
 
 export interface Recipe {
     image: StaticImageData
@@ -114,5 +118,13 @@ export const recipes: Record<string, Recipe> = {
     'amaretto-sour': {
         data: recipe17,
         image: image17,
+    },
+    'porn-star-martini': {
+        data: recipe18,
+        image: image18,
+    },
+    'passion-fruit-fizz': {
+        data: recipe19,
+        image: image19,
     },
 }
