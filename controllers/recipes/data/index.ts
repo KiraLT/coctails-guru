@@ -38,6 +38,8 @@ import image18 from './porn-star-martini/image.png'
 import recipe18 from './porn-star-martini/recipe.json'
 import image19 from './passion-fruit-fizz/image.png'
 import recipe19 from './passion-fruit-fizz/recipe.json'
+import image20 from './negroni/image.png'
+import recipe20 from './negroni/recipe.json'
 
 export interface Recipe {
     image: StaticImageData
@@ -124,6 +126,10 @@ export const recipes: Record<string, Recipe> = {
         image: image18,
     },
     'passion-fruit-fizz': {
+        data: recipe19,
+        image: image19,
+    },
+    negroni: {
         data: recipe19,
         image: image19,
     },
