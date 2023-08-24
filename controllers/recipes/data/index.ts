@@ -130,7 +130,7 @@ export const recipes: Record<string, Recipe> = {
         image: image19,
     },
     negroni: {
-        data: recipe19,
-        image: image19,
+        data: recipe20,
+        image: image20,
     },
 }
