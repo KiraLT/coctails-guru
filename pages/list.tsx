@@ -12,6 +12,7 @@ import {
 } from 'react-bootstrap'
 import { generateUUID } from 'common-stuff'
 import { QRCodeCanvas } from 'qrcode.react'
+import { ReactSortable } from "react-sortablejs"
 
 import { Layout } from '../components/layout'
 import { Recipes } from '../components/recipes'
@@ -24,6 +25,7 @@ import {
 } from '../controllers/lists'
 import Fuse from 'fuse.js'
 import {
+    RecipeWithMeta,
     getAllRecipesWithMeta,
     getRecipesWithMetaByIds,
 } from '../controllers/recipes'
@@ -41,11 +43,15 @@ const ListPage: NextPage = () => {
         return getRecipesWithMetaByIds(list.recipes)
     }, [list.recipes])
 
+    
+    const recipeNames = recipes.map(v => v.data.name).join(', ')
+    const seo = {
+        title: list.name || "Created/edit list",
+        description: recipeNames ? `Find great recipes for cocktails like ${recipeNames}.` : "Create your unique cocktail recipe lists, share your mixology passion, and inspire others. Our 'Create and Share Cocktails' page lets you craft personalized cocktail lists to share with the world. Start your mixology journey with us today!"
+    }
+
     return (
-        <Layout
-            title="Created/edit list"
-            description="Create your unique cocktail recipe lists, share your mixology passion, and inspire others. Our 'Create and Share Cocktails' page lets you craft personalized cocktail lists to share with the world. Start your mixology journey with us today!"
-        >
+        <Layout {...seo}>
             <section className="best-receipe-area">
                 <div className="container">
                     <Row className="mb-3">
@@ -211,34 +217,43 @@ function EditListPage({
                                 overflowY: 'auto',
                             }}
                         >
-                            {listRecipes.map((v) => (
-                                <ListGroup.Item key={v.meta.id}>
-                                    <Row>
-                                        <Col>{v.data.name}</Col>
-                                        <Col
-                                            className="text-right justify-content-center align-self-center"
-                                            md={'auto'}
-                                        >
-                                            <Button
-                                                variant="outline-danger"
-                                                onClick={() => {
-                                                    setList({
-                                                        ...list,
-                                                        recipes:
-                                                            list.recipes.filter(
-                                                                (r) =>
-                                                                    r !=
-                                                                    v.meta.id,
-                                                            ),
-                                                    })
-                                                }}
+                            <ReactSortable list={listRecipes.map(v => ({
+                                id: v.meta.id
+                            }))} setList={state => {
+                                setList({
+                                    ...list,
+                                    recipes: state.map(v => v.id)
+                                })
+                            }}>
+                                {listRecipes.map((v) => (
+                                    <ListGroup.Item key={v.meta.id} style={{cursor: 'pointer'}}>
+                                        <Row>
+                                            <Col>{v.data.name}</Col>
+                                            <Col
+                                                className="text-right justify-content-center align-self-center"
+                                                md={'auto'}
                                             >
-                                                Delete
-                                            </Button>
-                                        </Col>
-                                    </Row>
-                                </ListGroup.Item>
-                            ))}
+                                                <Button
+                                                    variant="outline-danger"
+                                                    onClick={() => {
+                                                        setList({
+                                                            ...list,
+                                                            recipes:
+                                                                list.recipes.filter(
+                                                                    (r) =>
+                                                                        r !=
+                                                                        v.meta.id,
+                                                                ),
+                                                        })
+                                                    }}
+                                                >
+                                                    Delete
+                                                </Button>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                ))}
+                            </ReactSortable>
                         </ListGroup>
                     )}
                     {!list.recipes.length && (
