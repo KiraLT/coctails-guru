@@ -30,7 +30,7 @@ export function Layout<T extends Thing>({
     return (
         <>
             <Head>
-                <title>{title}</title>
+                <title>{title} | Cocktails Guru</title>
                 {!!description && (
                     <meta name="description" content={description} />
                 )}
@@ -59,15 +59,15 @@ export function Layout<T extends Thing>({
                 <meta name="mobile-web-app-capable" content="yes" />
                 <meta name="theme-color" content="#000000" />
 
-                <link rel="apple-touch-icon" href={logo} />
-                <link rel="apple-touch-icon" sizes="152x152" href={logo} />
-                <link rel="apple-touch-icon" sizes="180x180" href={logo} />
-                <link rel="apple-touch-icon" sizes="167x167" href={logo} />
+                <link rel="apple-touch-icon" href={logo.src} />
+                <link rel="apple-touch-icon" sizes="152x152" href={logo.src} />
+                <link rel="apple-touch-icon" sizes="180x180" href={logo.src} />
+                <link rel="apple-touch-icon" sizes="167x167" href={logo.src} />
 
-                <link rel="icon" type="image/png" sizes="32x32" href={logo} />
-                <link rel="icon" type="image/png" sizes="16x16" href={logo} />
+                <link rel="icon" type="image/png" sizes="32x32" href={logo.src} />
+                <link rel="icon" type="image/png" sizes="16x16" href={logo.src} />
                 <link rel="manifest" href="/manifest.json" />
-                <link rel="mask-icon" href={logo} color="#5bbad5" />
+                <link rel="mask-icon" href={logo.src} color="#5bbad5" />
                 <link rel="shortcut icon" href="/favicon.ico" />
 
                 <meta
