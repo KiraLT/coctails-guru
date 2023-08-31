@@ -1,5 +1,8 @@
-/** @type {import('next').NextConfig} */
-module.exports = {
+const withPWA = require('next-pwa')({
+  dest: 'public',
+})
+
+module.exports = withPWA({
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
@@ -21,5 +24,4 @@ module.exports = {
     // `placeholder="empty"` to all <ExportedImage> components.
     nextImageExportOptimizer_generateAndUseBlurImages: true,
   },
-
-}
+})

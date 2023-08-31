@@ -12,7 +12,7 @@ import {
 } from 'react-bootstrap'
 import { generateUUID } from 'common-stuff'
 import { QRCodeCanvas } from 'qrcode.react'
-import { ReactSortable } from "react-sortablejs"
+import { ReactSortable } from 'react-sortablejs'
 
 import { Layout } from '../components/layout'
 import { Recipes } from '../components/recipes'
@@ -43,11 +43,12 @@ const ListPage: NextPage = () => {
         return getRecipesWithMetaByIds(list.recipes)
     }, [list.recipes])
 
-    
-    const recipeNames = recipes.map(v => v.data.name).join(', ')
+    const recipeNames = recipes.map((v) => v.data.name).join(', ')
     const seo = {
-        title: list.name || "Created/edit list",
-        description: recipeNames ? `Find great recipes for cocktails like ${recipeNames}.` : "Create your unique cocktail recipe lists, share your mixology passion, and inspire others. Our 'Create and Share Cocktails' page lets you craft personalized cocktail lists to share with the world. Start your mixology journey with us today!"
+        title: list.name || 'Created/edit list',
+        description: recipeNames
+            ? `Find great recipes for cocktails like ${recipeNames}.`
+            : "Create your unique cocktail recipe lists, share your mixology passion, and inspire others. Our 'Create and Share Cocktails' page lets you craft personalized cocktail lists to share with the world. Start your mixology journey with us today!",
     }
 
     return (
@@ -217,16 +218,22 @@ function EditListPage({
                                 overflowY: 'auto',
                             }}
                         >
-                            <ReactSortable list={listRecipes.map(v => ({
-                                id: v.meta.id
-                            }))} setList={state => {
-                                setList({
-                                    ...list,
-                                    recipes: state.map(v => v.id)
-                                })
-                            }}>
+                            <ReactSortable
+                                list={listRecipes.map((v) => ({
+                                    id: v.meta.id,
+                                }))}
+                                setList={(state) => {
+                                    setList({
+                                        ...list,
+                                        recipes: state.map((v) => v.id),
+                                    })
+                                }}
+                            >
                                 {listRecipes.map((v) => (
-                                    <ListGroup.Item key={v.meta.id} style={{cursor: 'pointer'}}>
+                                    <ListGroup.Item
+                                        key={v.meta.id}
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         <Row>
                                             <Col>{v.data.name}</Col>
                                             <Col
@@ -242,7 +249,8 @@ function EditListPage({
                                                                 list.recipes.filter(
                                                                     (r) =>
                                                                         r !=
-                                                                        v.meta.id,
+                                                                        v.meta
+                                                                            .id,
                                                                 ),
                                                         })
                                                     }}

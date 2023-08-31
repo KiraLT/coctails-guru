@@ -31,7 +31,6 @@ export function Layout<T extends Thing>({
         <>
             <Head>
                 <title>{title}</title>
-                <link rel="icon" href="/favicon.ico" />
                 {!!description && (
                     <meta name="description" content={description} />
                 )}
@@ -41,6 +40,40 @@ export function Layout<T extends Thing>({
                         {JSON.stringify(schema)}
                     </script>
                 )}
+
+                <meta name="application-name" content="Cocktails Guru" />
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta
+                    name="apple-mobile-web-app-status-bar-style"
+                    content="default"
+                />
+                <meta
+                    name="apple-mobile-web-app-title"
+                    content="Cocktails Guru"
+                />
+                <meta
+                    name="description"
+                    content="Home of mixology, where Signature Cocktails take center stage. Explore our curated selection of exceptional cocktail recipes, discover new favorites, and master the art of cocktail creation."
+                />
+                <meta name="format-detection" content="telephone=no" />
+                <meta name="mobile-web-app-capable" content="yes" />
+                <meta name="theme-color" content="#000000" />
+
+                <link rel="apple-touch-icon" href={logo} />
+                <link rel="apple-touch-icon" sizes="152x152" href={logo} />
+                <link rel="apple-touch-icon" sizes="180x180" href={logo} />
+                <link rel="apple-touch-icon" sizes="167x167" href={logo} />
+
+                <link rel="icon" type="image/png" sizes="32x32" href={logo} />
+                <link rel="icon" type="image/png" sizes="16x16" href={logo} />
+                <link rel="manifest" href="/manifest.json" />
+                <link rel="mask-icon" href={logo} color="#5bbad5" />
+                <link rel="shortcut icon" href="/favicon.ico" />
+
+                <meta
+                    name="viewport"
+                    content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+                />
             </Head>
 
             <Container className="mt-5 mb-3">
