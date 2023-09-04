@@ -8,6 +8,12 @@ import { FaSearch } from 'react-icons/fa'
 import type { WithContext, Thing } from 'schema-dts'
 
 import logo from '../public/logo.svg'
+import icon16 from '../public/icon-16x16.png'
+import icon32 from '../public/icon-32x32.png'
+import icon192 from '../public/icon-192x192.png'
+import icon256 from '../public/icon-256x256.png'
+import icon364 from '../public/icon-384x384.png'
+import icon512 from '../public/icon-512x512.png'
 
 export function Layout<T extends Thing>({
     children,
@@ -51,23 +57,20 @@ export function Layout<T extends Thing>({
                     name="apple-mobile-web-app-title"
                     content="Cocktails Guru"
                 />
-                <meta
-                    name="description"
-                    content="Home of mixology, where Signature Cocktails take center stage. Explore our curated selection of exceptional cocktail recipes, discover new favorites, and master the art of cocktail creation."
-                />
                 <meta name="format-detection" content="telephone=no" />
                 <meta name="mobile-web-app-capable" content="yes" />
                 <meta name="theme-color" content="#000000" />
 
-                <link rel="apple-touch-icon" href={logo.src} />
-                <link rel="apple-touch-icon" sizes="152x152" href={logo.src} />
-                <link rel="apple-touch-icon" sizes="180x180" href={logo.src} />
-                <link rel="apple-touch-icon" sizes="167x167" href={logo.src} />
+                <link rel="apple-touch-icon" href={icon192.src} />
+                <link rel="apple-touch-icon" sizes="16x16" href={icon16.src} />
+                <link rel="apple-touch-icon" sizes="32x32" href={icon32.src} />
+                <link rel="apple-touch-icon" sizes="192x192" href={icon192.src} />
+                <link rel="apple-touch-icon" sizes="256x256" href={icon256.src} />
 
-                <link rel="icon" type="image/png" sizes="32x32" href={logo.src} />
-                <link rel="icon" type="image/png" sizes="16x16" href={logo.src} />
+                <link rel="icon" type="image/png" sizes="16x16" href={icon16.src} />
+                <link rel="icon" type="image/png" sizes="32x32" href={icon32.src} />
                 <link rel="manifest" href="/manifest.json" />
-                <link rel="mask-icon" href={logo.src} color="#5bbad5" />
+                <link rel="mask-icon" href={icon32.src} color="#5bbad5" />
                 <link rel="shortcut icon" href="/favicon.ico" />
 
                 <meta
