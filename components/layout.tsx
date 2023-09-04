@@ -12,8 +12,6 @@ import icon16 from '../public/icon-16x16.png'
 import icon32 from '../public/icon-32x32.png'
 import icon192 from '../public/icon-192x192.png'
 import icon256 from '../public/icon-256x256.png'
-import icon364 from '../public/icon-384x384.png'
-import icon512 from '../public/icon-512x512.png'
 
 export function Layout<T extends Thing>({
     children,
@@ -36,7 +34,7 @@ export function Layout<T extends Thing>({
     return (
         <>
             <Head>
-                <title>{title} | Cocktails Guru</title>
+                <title>{`${title} | Cocktails Guru`}</title>
                 {!!description && (
                     <meta name="description" content={description} />
                 )}
@@ -64,11 +62,29 @@ export function Layout<T extends Thing>({
                 <link rel="apple-touch-icon" href={icon192.src} />
                 <link rel="apple-touch-icon" sizes="16x16" href={icon16.src} />
                 <link rel="apple-touch-icon" sizes="32x32" href={icon32.src} />
-                <link rel="apple-touch-icon" sizes="192x192" href={icon192.src} />
-                <link rel="apple-touch-icon" sizes="256x256" href={icon256.src} />
+                <link
+                    rel="apple-touch-icon"
+                    sizes="192x192"
+                    href={icon192.src}
+                />
+                <link
+                    rel="apple-touch-icon"
+                    sizes="256x256"
+                    href={icon256.src}
+                />
 
-                <link rel="icon" type="image/png" sizes="16x16" href={icon16.src} />
-                <link rel="icon" type="image/png" sizes="32x32" href={icon32.src} />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href={icon16.src}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href={icon32.src}
+                />
                 <link rel="manifest" href="/manifest.json" />
                 <link rel="mask-icon" href={icon32.src} color="#5bbad5" />
                 <link rel="shortcut icon" href="/favicon.ico" />

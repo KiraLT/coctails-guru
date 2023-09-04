@@ -13,6 +13,7 @@ import {
 import { generateUUID } from 'common-stuff'
 import { QRCodeCanvas } from 'qrcode.react'
 import { ReactSortable } from 'react-sortablejs'
+import { FaBars } from 'react-icons/fa'
 
 import { Layout } from '../components/layout'
 import { Recipes } from '../components/recipes'
@@ -25,7 +26,6 @@ import {
 } from '../controllers/lists'
 import Fuse from 'fuse.js'
 import {
-    RecipeWithMeta,
     getAllRecipesWithMeta,
     getRecipesWithMetaByIds,
 } from '../controllers/recipes'
@@ -232,16 +232,33 @@ function EditListPage({
                                 {listRecipes.map((v) => (
                                     <ListGroup.Item
                                         key={v.meta.id}
-                                        style={{ cursor: 'pointer' }}
+                                        style={{
+                                            userSelect: 'none',
+                                            pointerEvents: 'none',
+                                        }}
                                     >
                                         <Row>
-                                            <Col>{v.data.name}</Col>
+                                            <Col
+                                                md={'auto'}
+                                                style={{
+                                                    cursor: 'move',
+                                                    pointerEvents: 'auto',
+                                                }}
+                                                className="justify-content-center align-self-center">
+                                                <FaBars />
+                                            </Col>
+                                            <Col className="justify-content-center align-self-center">
+                                                {v.data.name}
+                                            </Col>
                                             <Col
                                                 className="text-right justify-content-center align-self-center"
                                                 md={'auto'}
                                             >
                                                 <Button
                                                     variant="outline-danger"
+                                                    style={{
+                                                        pointerEvents: 'auto',
+                                                    }}
                                                     onClick={() => {
                                                         setList({
                                                             ...list,
