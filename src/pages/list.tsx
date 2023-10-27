@@ -244,7 +244,8 @@ function EditListPage({
                                                     cursor: 'move',
                                                     pointerEvents: 'auto',
                                                 }}
-                                                className="justify-content-center align-self-center">
+                                                className="justify-content-center align-self-center"
+                                            >
                                                 <FaBars />
                                             </Col>
                                             <Col className="justify-content-center align-self-center">

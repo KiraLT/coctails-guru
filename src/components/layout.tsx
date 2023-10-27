@@ -7,11 +7,11 @@ import { Form, Button, Container, Nav, Navbar } from 'react-bootstrap'
 import { FaSearch } from 'react-icons/fa'
 import type { WithContext, Thing } from 'schema-dts'
 
-import logo from 'public/public/logo.svg'
-import icon16 from 'public/public/icon-16x16.png'
-import icon32 from 'public/public/icon-32x32.png'
-import icon192 from 'public/public/icon-192x192.png'
-import icon256 from 'public/public/icon-256x256.png'
+import logo from 'public/logo.svg'
+import icon16 from 'public/icon-16x16.png'
+import icon32 from 'public/icon-32x32.png'
+import icon192 from 'public/icon-192x192.png'
+import icon256 from 'public/icon-256x256.png'
 
 export function Layout<T extends Thing>({
     children,
