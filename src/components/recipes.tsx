@@ -1,5 +1,5 @@
 import { Row, Col } from 'react-bootstrap'
-import { RecipeWithMeta } from '../controllers/recipes'
+import { RecipeWithMeta } from '@/controllers/recipes'
 import Image from 'next-image-export-optimizer'
 import Link from 'next/link'
 
