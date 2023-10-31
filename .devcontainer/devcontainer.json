@@ -1,8 +1,8 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "features": {
-    "ghcr.io/devcontainers/features/node:1": {}
-  },
-  "forwardPorts": [3000],
-  "updateContentCommand": "npm install"
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {}
+    },
+    "forwardPorts": [3000],
+    "updateContentCommand": "npm install"
 }

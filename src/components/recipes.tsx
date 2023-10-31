@@ -1,4 +1,3 @@
-import { Row, Col } from 'react-bootstrap'
 import { RecipeWithMeta } from '@/controllers/recipes'
 import Image from 'next-image-export-optimizer'
 import Link from 'next/link'
@@ -8,39 +7,29 @@ export function Recipes({
 }: {
     recipes: RecipeWithMeta[]
 }): JSX.Element {
-    return (
-        <Row>
+    return <>
+        {!recipes?.length && (
+            <div className="alert alert-info">
+                {"No recipes were found"}
+            </div>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {recipes.map((recipe) => (
-                <Col key={recipe.meta.id} xs={12} sm={6} md={4}>
-                    <div className="single-best-receipe-area mb-30">
-                        <Link
-                            href={`/recipes/${recipe.meta.slug}`}
-                            legacyBehavior
-                        >
-                            <a>
-                                <div
-                                    style={{
-                                        position: 'relative',
-                                        height: '300px',
-                                    }}
-                                >
-                                    <Image
-                                        src={recipe.image}
-                                        alt={recipe.data.name}
-                                        fill={true}
-                                        style={{
-                                            objectFit: 'cover',
-                                        }}
-                                    />
-                                </div>
-                                <div className="receipe-content">
-                                    <h5>{recipe.data.name}</h5>
-                                </div>
-                            </a>
-                        </Link>
+                <Link
+                    key={recipe.meta.id}
+                    href={`/recipes/${recipe.meta.slug}`}
+                    className="bg-base-200 rounded-md"
+                >
+                    <Image
+                        src={recipe.image}
+                        alt={recipe.data.name}
+                        className="object-cover h-48 w-96 dark:mix-blend-screen"
+                    />
+                    <div className="p-2 pt-1">
+                        <h3 className="text-lg">{recipe.data.name}</h3>
                     </div>
-                </Col>
+                </Link>
             ))}
-        </Row>
-    )
+        </div>
+    </>
 }

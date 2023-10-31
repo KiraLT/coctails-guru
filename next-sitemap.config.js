@@ -5,5 +5,5 @@ module.exports = {
     generateRobotsTxt: true,
     generateIndexSitemap: false,
     trailingSlash: true,
-    exclude: ['404']
+    exclude: ['404'],
 }
