@@ -1,8 +1,5 @@
 import { List, getListRecipes } from '@/controllers/lists'
-import {
-    Recipe,
-    getAllRecipes,
-} from '@/controllers/recipes'
+import { Recipe, getAllRecipes } from '@/controllers/recipes'
 import Fuse from 'fuse.js'
 import { useState, useMemo } from 'react'
 import { FaBars } from 'react-icons/fa6'

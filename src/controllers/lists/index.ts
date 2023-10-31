@@ -41,11 +41,7 @@ export function getListFromUrlQuery(
     query: Record<string, string | string[] | undefined | null>,
 ): List {
     const name = typeof query.n === 'string' ? query.n : ''
-    const recipeIds =
-        typeof query.r === 'string'
-            ? query.r
-                  .split(' ')
-            : []
+    const recipeIds = typeof query.r === 'string' ? query.r.split(' ') : []
 
     return {
         name,
@@ -61,5 +57,7 @@ export function replaceList(oldList: List, newList: List): void {
 }
 
 export function getListRecipes(list: List): Recipe[] {
-    return list.recipes.flatMap((recipeId) => recipes.filter((v) => v.slug === recipeId))
+    return list.recipes.flatMap((recipeId) =>
+        recipes.filter((v) => v.slug === recipeId),
+    )
 }

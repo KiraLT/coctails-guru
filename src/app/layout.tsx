@@ -50,8 +50,8 @@ export const metadata: Metadata = {
         initialScale: 1,
         width: 'device-width',
         userScalable: false,
-        viewportFit: 'cover', 
-    }
+        viewportFit: 'cover',
+    },
 }
 
 export default function RootLayout({

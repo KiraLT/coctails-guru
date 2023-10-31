@@ -49,19 +49,27 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
         <article>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify({
-                    '@type': 'Recipe',
-                    name: recipe.data.name,
-                    description: recipe.data.description || '',
-                    recipeIngredient: Object.entries(recipe.data.ingredients).map(
-                        ([ingredient, quantity]) =>
-                            `${formatQuantity(quantity)} ${titleCase(ingredient)}`,
-                    ),
-                    recipeInstructions: recipe.data.instructions.map((v) => ({
-                        '@type': 'HowToStep',
-                        text: v,
-                    })),
-                } satisfies RecipeLd)}}
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@type': 'Recipe',
+                        name: recipe.data.name,
+                        description: recipe.data.description || '',
+                        recipeIngredient: Object.entries(
+                            recipe.data.ingredients,
+                        ).map(
+                            ([ingredient, quantity]) =>
+                                `${formatQuantity(quantity)} ${titleCase(
+                                    ingredient,
+                                )}`,
+                        ),
+                        recipeInstructions: recipe.data.instructions.map(
+                            (v) => ({
+                                '@type': 'HowToStep',
+                                text: v,
+                            }),
+                        ),
+                    } satisfies RecipeLd),
+                }}
             />
             <h1 className="text-4xl mb-4">{recipe.data.name}</h1>
             <div className="md:hidden mb-4">
@@ -88,9 +96,12 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                 </div>
                 <div className="md:w-1/3 hidden md:block">
                     <Image
-                        src={recipe.image}
+                        src={recipe.image.src}
+                        width={400}
+                        height={200}
                         alt={recipe.data.name}
                         className="object-cover h-48 w-96 dark:opacity-50"
+                        placeholder="blur"
                     />
                     <Ingredients ingredients={recipe.data.ingredients} />
                 </div>
