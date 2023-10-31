@@ -3,6 +3,7 @@ import { useMemo } from 'react'
 
 import { Recipes } from '../components/recipes'
 import { getAllRecipes } from '../controllers/recipes'
+import { sortBy } from 'common-stuff'
 
 export const metadata: Metadata = {
     title: 'Signature Cocktails',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function Page(): JSX.Element {
-    const recipes = useMemo(() => getAllRecipes(), [])
+    const recipes = useMemo(() => sortBy(getAllRecipes(), v => v.data.labels?.includes('signature')), [])
 
     return (
         <>

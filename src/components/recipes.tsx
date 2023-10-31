@@ -12,24 +12,22 @@ export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
             )}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {recipes.map((recipe) => {
-                    const ratio = recipe.image.height / recipe.image.width
-
                     return (
                         <Link
                             key={recipe.slug}
                             href={`/recipes/${recipe.slug}`}
-                            className="bg-base-200 rounded-md"
+                            className="card bg-base-100 shadow-xl"
                         >
-                            <Image
+                            <figure><Image
                                 src={recipe.image.src}
                                 width={400}
                                 height={200}
                                 alt={recipe.data.name}
                                 placeholder="blur"
                                 className="object-cover h-48 w-96 dark:opacity-50"
-                            />
-                            <div className="p-2 pt-1">
-                                <h3 className="text-lg">{recipe.data.name}</h3>
+                            /></figure>
+                            <div className="card-body items-center text-center p-4">
+                                <h2 className="card-title">{recipe.data.name}</h2>
                             </div>
                         </Link>
                     )

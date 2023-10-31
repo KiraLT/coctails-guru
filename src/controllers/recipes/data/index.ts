@@ -1,6 +1,8 @@
 import { StaticImageData } from 'next/image'
 import { groupBy } from 'common-stuff'
 
+export type RecipeLabel = 'signature'
+
 export interface Recipe {
     slug: string
     image: StaticImageData
@@ -10,6 +12,7 @@ export interface Recipe {
         ingredients: Record<string, number>
         instructions: string[]
         tips?: string[]
+        labels?: RecipeLabel[]
     }
 }
 

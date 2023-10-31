@@ -71,13 +71,15 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                     } satisfies RecipeLd),
                 }}
             />
-            <h1 className="text-4xl mb-4">{recipe.data.name}</h1>
+            <h1 className="text-4xl mb-4">
+                {recipe.data.name}
+            </h1>
             <div className="md:hidden mb-4">
-                {/* <Image
+                <Image
                     src={recipe.image}
                     alt={recipe.data.name}
                     className="object-cover h-48 w-full dark:mix-blend-screen"
-                /> */}
+                />
             </div>
             <div className="md:flex">
                 <div className="md:w-2/3 md:mr-5">
