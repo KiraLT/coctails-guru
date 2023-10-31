@@ -1,5 +1,6 @@
 'use client'
 import { DiscussionEmbed } from 'disqus-react'
+import { useAsync } from 'react-async-hook'
 
 export function Comments({
     name,
@@ -8,13 +9,15 @@ export function Comments({
     name: string
     className?: string
 }): JSX.Element {
-    if (process.env.NEXT_PUBLIC_DISQUS_NAME) {
+    const url = useAsync(async () => window.location.href, [name])
+
+    if (url.result && process.env.NEXT_PUBLIC_DISQUS_NAME) {
         return (
             <div className={className}>
                 <DiscussionEmbed
                     shortname={process.env.NEXT_PUBLIC_DISQUS_NAME}
                     config={{
-                        url: location.href,
+                        url: url.result,
                         identifier: name,
                         title: name,
                     }}
