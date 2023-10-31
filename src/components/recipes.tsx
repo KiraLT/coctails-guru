@@ -7,29 +7,31 @@ export function Recipes({
 }: {
     recipes: RecipeWithMeta[]
 }): JSX.Element {
-    return <>
-        {!recipes?.length && (
-            <div className="alert alert-info">
-                {"No recipes were found"}
+    return (
+        <>
+            {!recipes?.length && (
+                <div className="alert alert-info">
+                    {'No recipes were found'}
+                </div>
+            )}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {recipes.map((recipe) => (
+                    <Link
+                        key={recipe.meta.id}
+                        href={`/recipes/${recipe.meta.slug}`}
+                        className="bg-base-200 rounded-md"
+                    >
+                        <Image
+                            src={recipe.image}
+                            alt={recipe.data.name}
+                            className="object-cover h-48 w-96 dark:mix-blend-screen"
+                        />
+                        <div className="p-2 pt-1">
+                            <h3 className="text-lg">{recipe.data.name}</h3>
+                        </div>
+                    </Link>
+                ))}
             </div>
-        )}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {recipes.map((recipe) => (
-                <Link
-                    key={recipe.meta.id}
-                    href={`/recipes/${recipe.meta.slug}`}
-                    className="bg-base-200 rounded-md"
-                >
-                    <Image
-                        src={recipe.image}
-                        alt={recipe.data.name}
-                        className="object-cover h-48 w-96 dark:mix-blend-screen"
-                    />
-                    <div className="p-2 pt-1">
-                        <h3 className="text-lg">{recipe.data.name}</h3>
-                    </div>
-                </Link>
-            ))}
-        </div>
-    </>
+        </>
+    )
 }

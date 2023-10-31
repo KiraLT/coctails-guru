@@ -12,7 +12,7 @@ const config: Config = {
     daisyui: {
         themes: ['cupcake', 'night'],
         darkTheme: 'night',
-        logs: false
+        logs: false,
     },
 }
 export default config

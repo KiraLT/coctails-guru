@@ -16,7 +16,7 @@ export default function Page(): JSX.Element {
                 <h1 className="text-4xl">My lists</h1>
                 <Link href="/list" className="btn btn-success btn-outline">
                     <FaPlus />
-                    <div className='hidden md:block'>Create</div>
+                    <div className="hidden md:block">Create</div>
                 </Link>
             </div>
             <Content />

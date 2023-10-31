@@ -1,5 +1,5 @@
-import { Metadata } from "next"
-import Content from "./content"
+import { Metadata } from 'next'
+import Content from './content'
 
 export const metadata: Metadata = {
     title: 'Create/edit list',
@@ -8,8 +8,9 @@ export const metadata: Metadata = {
 }
 
 export default function Page(): JSX.Element {
-    return <>
-        <Content />
-    </>
+    return (
+        <>
+            <Content />
+        </>
+    )
 }
-

@@ -29,7 +29,7 @@ export default function Content(): JSX.Element {
                             </small>
                         </div>
                         <Button
-                            color='error'
+                            color="error"
                             variant="outline"
                             startIcon={<FaTrashCan />}
                             onClick={() => {

@@ -1,15 +1,13 @@
 'use client'
-import { generateUUID } from "common-stuff"
-import { QRCodeCanvas } from "qrcode.react"
-import { useState } from "react"
-import { useAsync } from "react-async-hook"
+import { generateUUID } from 'common-stuff'
+import { QRCodeCanvas } from 'qrcode.react'
+import { useState } from 'react'
+import { useAsync } from 'react-async-hook'
 
 export function Share() {
     const [copied, setCopied] = useState(false)
     const id = `share-${generateUUID()}`
-    const {
-        result: url,
-    } = useAsync(async () => window.location.href, [])
+    const { result: url } = useAsync(async () => window.location.href, [])
 
     return (
         <>
@@ -18,9 +16,16 @@ export function Share() {
             </div>
             <div className="form-control">
                 <div className="input-group">
-                    <input type="text" disabled={true} value={url ?? ''} className="input w-full"/>
+                    <input
+                        type="text"
+                        disabled={true}
+                        value={url ?? ''}
+                        className="input w-full"
+                    />
                     <button
-                        className={`btn btn-square ${copied ? 'btn-success' : ''}`}
+                        className={`btn btn-square ${
+                            copied ? 'btn-success' : ''
+                        }`}
                         onClick={() => {
                             navigator.clipboard.writeText(url ?? '')
                             setCopied(true)
