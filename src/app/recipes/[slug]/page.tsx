@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 import {
     Recipe,
     formatQuantity,
-    getAllRecipeSlugs,
+    getAllRecipes,
     getRecipeBySlug,
 } from '@/controllers/recipes'
 import { Metadata } from 'next/types'
@@ -18,7 +18,7 @@ export interface Props {
 }
 
 export async function generateStaticParams(): Promise<Props['params'][]> {
-    return getAllRecipeSlugs().map((slug) => ({ slug }))
+    return getAllRecipes().map((recipe) => ({ slug: recipe.slug }))
 }
 
 export async function generateMetadata({

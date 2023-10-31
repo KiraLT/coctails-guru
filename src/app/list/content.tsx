@@ -4,10 +4,11 @@ import { Recipes } from '@/components/recipes'
 import { useRouter, useSearchParams } from 'next/navigation'
 import {
     getListFromUrlQuery,
+    getListRecipes,
     getListUrl,
     replaceList,
 } from '@/controllers/lists'
-import { getRecipesWithMetaByIds } from '@/controllers/recipes'
+import { getAllRecipes } from '@/controllers/recipes'
 import { Share } from '@/components/share'
 import { Alert, Modal, Button } from 'react-daisyui'
 import { EditList } from '@/app/list/edit-list'
@@ -25,8 +26,8 @@ export default function Content(): JSX.Element {
     }, [searchParams])
 
     const recipes = useMemo(() => {
-        return getRecipesWithMetaByIds(list.recipes)
-    }, [list.recipes])
+        return getListRecipes(list)
+    }, [list])
 
     return (
         <>

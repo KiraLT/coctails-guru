@@ -22,7 +22,7 @@ export default function Content(): JSX.Element {
                     <li className="flex justify-between items-center my-2 border-primary-content">
                         <div>
                             <Link href={getListUrl(v)}>
-                                <span className="text-truncate">{v.name}</span>{' '}
+                                <span className="text-truncate">{v.name || 'Unnamed list'}</span>{' '}
                             </Link>
                             <small className="text-muted">
                                 ({v.recipes.length} recipes)

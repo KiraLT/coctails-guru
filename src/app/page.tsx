@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types'
 import { useMemo } from 'react'
 
 import { Recipes } from '../components/recipes'
-import { getAllRecipesWithMeta } from '../controllers/recipes'
+import { getAllRecipes } from '../controllers/recipes'
 
 export const metadata: Metadata = {
     title: 'Signature Cocktails',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function Page(): JSX.Element {
-    const recipes = useMemo(() => getAllRecipesWithMeta(), [])
+    const recipes = useMemo(() => getAllRecipes(), [])
 
     return (
         <>

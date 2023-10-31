@@ -1,13 +1,13 @@
 'use client'
 import { Recipes } from '@/components/recipes'
-import { getAllRecipesWithMeta } from '@/controllers/recipes'
+import { getAllRecipes } from '@/controllers/recipes'
 import Fuse from 'fuse.js'
 import { useMemo } from 'react'
 import { useSearchParams } from 'next/navigation'
 
 export default function Content(): JSX.Element {
     const searchParams = useSearchParams()
-    const recipes = useMemo(() => getAllRecipesWithMeta(), [])
+    const recipes = useMemo(() => getAllRecipes(), [])
     const fuse = useMemo(() => {
         return new Fuse(recipes, {
             keys: ['data.name'],

@@ -1,8 +1,7 @@
-import { List } from '@/controllers/lists'
+import { List, getListRecipes } from '@/controllers/lists'
 import {
-    RecipeWithMeta,
-    getAllRecipesWithMeta,
-    getRecipesWithMetaByIds,
+    Recipe,
+    getAllRecipes,
 } from '@/controllers/recipes'
 import Fuse from 'fuse.js'
 import { useState, useMemo } from 'react'
@@ -20,12 +19,12 @@ export function EditList({
     const [list, setList] = useState(originalList)
     const [addMode, setAddMode] = useState(false)
 
-    const allRecipes = useMemo(() => getAllRecipesWithMeta(), [])
+    const allRecipes = useMemo(() => getAllRecipes(), [])
     const listRecipes = useMemo(() => {
-        return getRecipesWithMetaByIds(list.recipes)
-    }, [list.recipes])
+        return getListRecipes(list)
+    }, [list])
     const nonListRecipes = useMemo(() => {
-        return allRecipes.filter((v) => !list.recipes.includes(v.meta.id))
+        return allRecipes.filter((v) => !list.recipes.includes(v.slug))
     }, [allRecipes, list.recipes])
 
     return (
@@ -77,10 +76,10 @@ export function EditList({
                                 recipes: list.recipes.filter((v) => v !== id),
                             })
                         }}
-                        onReorder={(ids) => {
+                        onReorder={(recipes) => {
                             setList({
                                 ...list,
-                                recipes: ids,
+                                recipes,
                             })
                         }}
                     />
@@ -104,8 +103,8 @@ function AddView({
     recipes,
     onAdd,
 }: {
-    recipes: RecipeWithMeta[]
-    onAdd(id: number): void
+    recipes: Recipe[]
+    onAdd(slug: string): void
 }): JSX.Element {
     const [query, setQuery] = useState('')
 
@@ -134,9 +133,9 @@ function AddView({
                 <ul className="text-sm font-medium divide-y border-primary-content">
                     {result.map((v) => (
                         <li
-                            key={v.meta.id}
+                            key={v.slug}
                             className="w-full px-2 py-4"
-                            onClick={() => onAdd(v.meta.id)}
+                            onClick={() => onAdd(v.slug)}
                             style={{ cursor: 'pointer' }}
                         >
                             {v.data.name}
@@ -156,9 +155,9 @@ function EditView({
     onRemove,
     onReorder,
 }: {
-    recipes: RecipeWithMeta[]
-    onReorder(recipes: number[]): void
-    onRemove(id: number): void
+    recipes: Recipe[]
+    onReorder(recipes: string[]): void
+    onRemove(slug: string): void
 }): JSX.Element {
     return (
         <>
@@ -167,7 +166,7 @@ function EditView({
                     <ReactSortable
                         tag="li"
                         list={recipes.map((v) => ({
-                            id: v.meta.id,
+                            id: v.slug,
                         }))}
                         setList={(state) => {
                             onReorder(state.map((v) => v.id))
@@ -176,7 +175,7 @@ function EditView({
                     >
                         {recipes.map((v) => (
                             <div
-                                key={v.meta.id}
+                                key={v.slug}
                                 className="flex justify-between items-center my-2"
                             >
                                 <div className="handle cursor-move mx-4 text-lg">
@@ -188,7 +187,7 @@ function EditView({
                                         color="error"
                                         variant="outline"
                                         onClick={() => {
-                                            onRemove(v.meta.id)
+                                            onRemove(v.slug)
                                         }}
                                     >
                                         Delete

@@ -1,8 +1,10 @@
 import { deduplicateBy, deduplicate } from 'common-stuff'
+import { Recipe } from '../recipes'
+import { recipes } from '../recipes/data'
 
 export interface List {
     name: string
-    recipes: number[]
+    recipes: string[]
 }
 
 const localStorageKey = 'my-lists'
@@ -43,8 +45,6 @@ export function getListFromUrlQuery(
         typeof query.r === 'string'
             ? query.r
                   .split(' ')
-                  .map((v) => parseInt(v, 10))
-                  .filter((v) => !isNaN(v))
             : []
 
     return {
@@ -58,4 +58,8 @@ export function replaceList(oldList: List, newList: List): void {
         ...getAllLists().filter((v) => v.name !== oldList.name),
         newList,
     ])
+}
+
+export function getListRecipes(list: List): Recipe[] {
+    return list.recipes.flatMap((recipeId) => recipes.filter((v) => v.slug === recipeId))
 }

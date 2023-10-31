@@ -1,11 +1,11 @@
-import { RecipeWithMeta } from '@/controllers/recipes'
+import { Recipe } from '@/controllers/recipes'
 import Image from 'next-image-export-optimizer'
 import Link from 'next/link'
 
 export function Recipes({
     recipes,
 }: {
-    recipes: RecipeWithMeta[]
+    recipes: Recipe[]
 }): JSX.Element {
     return (
         <>
@@ -17,8 +17,8 @@ export function Recipes({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {recipes.map((recipe) => (
                     <Link
-                        key={recipe.meta.id}
-                        href={`/recipes/${recipe.meta.slug}`}
+                        key={recipe.slug}
+                        href={`/recipes/${recipe.slug}`}
                         className="bg-base-200 rounded-md"
                     >
                         <Image
