@@ -1,5 +1,5 @@
 import { Recipe } from '@/controllers/recipes'
-import Image from 'next-image-export-optimizer'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export function Recipes({
@@ -24,6 +24,7 @@ export function Recipes({
                         <Image
                             src={recipe.image}
                             alt={recipe.data.name}
+                            placeholder={'blur'}
                             className="object-cover h-48 w-96 dark:mix-blend-screen"
                         />
                         <div className="p-2 pt-1">

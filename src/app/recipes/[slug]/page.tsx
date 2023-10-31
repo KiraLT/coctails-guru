@@ -1,4 +1,4 @@
-import Image from 'next-image-export-optimizer'
+import Image from 'next/image'
 import { titleCase } from 'common-stuff'
 import { useMemo } from 'react'
 import {
@@ -8,8 +8,8 @@ import {
     getRecipeBySlug,
 } from '@/controllers/recipes'
 import { Metadata } from 'next/types'
-import { RecipeJsonLd } from 'next-seo'
 import { Comments } from '@/components/comments'
+import type { Recipe as RecipeLd } from 'schema-dts'
 
 export interface Props {
     params: {
@@ -47,26 +47,29 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
 
     return (
         <article>
-            <RecipeJsonLd
-                useAppDir={true}
-                name={recipe.data.name}
-                description={recipe.data.description || ''}
-                authorName="Cocktails Guru"
-                ingredients={Object.entries(recipe.data.ingredients).map(
-                    ([ingredient, quantity]) =>
-                        `${formatQuantity(quantity)} ${titleCase(ingredient)}`,
-                )}
-                instructions={recipe.data.instructions.map((v) => ({
-                    text: v,
-                }))}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify({
+                    '@type': 'Recipe',
+                    name: recipe.data.name,
+                    description: recipe.data.description || '',
+                    recipeIngredient: Object.entries(recipe.data.ingredients).map(
+                        ([ingredient, quantity]) =>
+                            `${formatQuantity(quantity)} ${titleCase(ingredient)}`,
+                    ),
+                    recipeInstructions: recipe.data.instructions.map((v) => ({
+                        '@type': 'HowToStep',
+                        text: v,
+                    })),
+                } satisfies RecipeLd)}}
             />
             <h1 className="text-4xl mb-4">{recipe.data.name}</h1>
             <div className="md:hidden mb-4">
-                <Image
+                {/* <Image
                     src={recipe.image}
                     alt={recipe.data.name}
                     className="object-cover h-48 w-full dark:mix-blend-screen"
-                />
+                /> */}
             </div>
             <div className="md:flex">
                 <div className="md:w-2/3 md:mr-5">

@@ -1,6 +1,6 @@
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
-import { Metadata, Viewport } from 'next/types'
+import { Metadata } from 'next/types'
 
 import icon16 from 'public/icon-16x16.png'
 import icon32 from 'public/icon-32x32.png'
@@ -45,14 +45,13 @@ export const metadata: Metadata = {
             },
         ],
     },
-}
-
-export const viewport: Viewport = {
-    minimumScale: 1,
-    initialScale: 1,
-    width: 'device-width',
-    userScalable: false,
-    viewportFit: 'cover',
+    viewport: {
+        minimumScale: 1,
+        initialScale: 1,
+        width: 'device-width',
+        userScalable: false,
+        viewportFit: 'cover', 
+    }
 }
 
 export default function RootLayout({
