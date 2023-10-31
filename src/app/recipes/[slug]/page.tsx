@@ -81,7 +81,7 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                     />
                     <Instructions instructions={recipe.data.instructions} />
                     <TipsAndTricks tips={recipe.data.tips} />
-                    <Comments name={recipe.data.name} />
+                    <Comments name={recipe.data.name} className="mt-5" />
                 </div>
                 <div className="md:w-1/3 hidden md:block">
                     <Image

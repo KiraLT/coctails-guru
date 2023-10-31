@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#disqus_thread iframe {
+    color-scheme: light;
+}

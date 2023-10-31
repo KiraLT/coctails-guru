@@ -13,7 +13,7 @@ export function Comments({
 
     if (url.result && process.env.NEXT_PUBLIC_DISQUS_NAME) {
         return (
-            <div className={className}>
+            <div className={`${className} text-black`}>
                 <DiscussionEmbed
                     shortname={process.env.NEXT_PUBLIC_DISQUS_NAME}
                     config={{
