@@ -5,7 +5,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build && next-export-optimize-images && next-sitemap",
-        "start": "serve out",
+        "start": "npx serve out",
         "lint": "next lint",
         "prettify": "prettier --write \"**/*.{js,ts,tsx,json,css,scss,yaml}\""
     },

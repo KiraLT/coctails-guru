@@ -90,7 +90,7 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                     <Image
                         src={recipe.image}
                         alt={recipe.data.name}
-                        className="object-cover h-48 w-96 dark:mix-blend-screen"
+                        className="object-cover h-48 w-96 dark:opacity-50"
                     />
                     <Ingredients ingredients={recipe.data.ingredients} />
                 </div>
