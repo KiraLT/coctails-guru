@@ -1,0 +1,15 @@
+name: Aperol Spritz
+description: >
+    The Aperol Spritz, a vibrant mix of Prosecco, Aperol, and soda water, hails from Venice, Italy, and gained popularity in the early 20th century.
+    Known for its bitter-sweet taste and striking orange hue, it is traditionally enjoyed as an aperitif, especially during the Italian ritual of "aperitivo".
+    Its refreshing and light nature makes it a beloved summer staple around the globe.
+instructions:
+    - Fill a wine glass with ice cubes.
+    - 'First pour in the Aperol, then the Prosecco.'
+    - Add a splash of soda water.
+    - Gently stir to mix.
+    - Garnish with a slice of orange.
+ingredients:
+    aperol: 2
+    prosecco: 3
+    club soda: 1

@@ -24,7 +24,7 @@ declare const require: {
     }
 }
 
-const loader = require.context('.', true, /\.(json|png)$/)
+const loader = require.context('.', true, /\.(png|yaml)$/)
 
 export const recipes = groupBy(
     loader.keys().map((v) => {
@@ -53,4 +53,9 @@ export const recipes = groupBy(
                 ?.data as Recipe['image'],
         }
     })
-    .filter((v) => v.data && v.image)
+    .map((v) => {
+        if (!v.image || !v.data) {
+            throw new Error(`Recipe ${v.slug} is missing image or data`)
+        }
+        return v
+    })
