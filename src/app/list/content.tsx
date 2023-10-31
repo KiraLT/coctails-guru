@@ -1,6 +1,5 @@
 'use client'
 import { useMemo } from 'react'
-import { Alert } from 'react-bootstrap'
 import { Recipes } from '@/components/recipes'
 import { useRouter, useSearchParams } from 'next/navigation'
 import {
@@ -10,7 +9,7 @@ import {
 } from '@/controllers/lists'
 import { getRecipesWithMetaByIds } from '@/controllers/recipes'
 import { Share } from '@/components/share'
-import { Modal, Button } from 'react-daisyui'
+import { Alert, Modal, Button } from 'react-daisyui'
 import { EditList } from '@/app/list/edit-list'
 import { FaShareFromSquare, FaPenToSquare } from 'react-icons/fa6'
 
@@ -61,7 +60,7 @@ export default function Content(): JSX.Element {
                 </div>
             </div>
             {!list.recipes.length && (
-                <Alert variant="info">List is empty, add recipes to it</Alert>
+                <Alert color="info">List is empty, add recipes to it</Alert>
             )}
             {!!list.recipes.length && <Recipes recipes={recipes} />}
             <shareDialog.Dialog backdrop={true}>
