@@ -9,7 +9,7 @@ export function getAllRecipes(): Recipe[] {
     return recipes
 }
 
-export function formatQuantity(quantity: number): string {
+export function formatQuantity(ingredient: string, quantity: number): string {
     const q1 = Math.floor(quantity)
     const q2 = quantity - q1
 
@@ -21,5 +21,15 @@ export function formatQuantity(quantity: number): string {
         0.6: '⅔',
     }
 
-    return `${q1 || ''} ${mappings[q2] || q2 || ''} oz`
+    const units = getUnits(ingredient, quantity > 1)
+
+    return `${q1 || ''} ${mappings[q2] || q2 || ''} ${units}`
+}
+
+function getUnits(ingredient: string, plural: boolean): string {
+    if (ingredient.includes('bitter')) {
+        return plural ? 'dashes' : 'dash'
+    }
+
+    return plural ? 'oz' : 'oz'
 }

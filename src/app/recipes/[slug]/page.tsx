@@ -58,7 +58,7 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                             recipe.data.ingredients,
                         ).map(
                             ([ingredient, quantity]) =>
-                                `${formatQuantity(quantity)} ${titleCase(
+                                `${formatQuantity(ingredient, quantity)} ${titleCase(
                                     ingredient,
                                 )}`,
                         ),
@@ -134,7 +134,7 @@ function Ingredients({
                     <li key={ingredient}>
                         <label className="flex items-center">
                             <input type="checkbox" className="checkbox mr-2" />
-                            {formatQuantity(quantity)} {titleCase(ingredient)}
+                            {formatQuantity(ingredient, quantity)} {titleCase(ingredient)}
                         </label>
                     </li>
                 ))}
