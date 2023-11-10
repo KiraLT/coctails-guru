@@ -169,7 +169,7 @@ export default function NotFound() {
                 </p>
                 <Link
                     href="/"
-                    className="flex items-center btn btn-primary mt-12 rounded transition duration-150"
+                    className="flex items-center btn btn-primary btn-outline mt-12 rounded transition duration-150"
                     title="Return Home"
                 >
                     <svg
