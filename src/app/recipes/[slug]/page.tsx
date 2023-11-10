@@ -71,15 +71,20 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                     } satisfies RecipeLd),
                 }}
             />
-            <h1 className="text-4xl mb-4">
-                {recipe.data.name}
-            </h1>
-            <div className="md:hidden mb-4">
-                <Image
-                    src={recipe.image}
-                    alt={recipe.data.name}
-                    className="object-cover h-48 w-full dark:mix-blend-screen"
-                />
+            <div className="prose">
+                <h1 className="text-3xl mb-4 font-medium">
+                    {recipe.data.name}
+                </h1>
+            </div>
+            <div className="md:hidden mb-4 card">
+                <figure>
+                    <Image
+                        src={recipe.image}
+                        alt={recipe.data.name}
+                        className="object-cover h-48 w-full dark:mix-blend-screen"
+                    />
+                </figure>
+                <div className="card-body p-0 m-0"></div>
             </div>
             <div className="md:flex">
                 <div className="md:w-2/3 md:mr-5">
@@ -88,24 +93,28 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
                             <p>{recipe.data.description}</p>
                         )}
                     </section>
-                    <Ingredients
-                        ingredients={recipe.data.ingredients}
-                        className="md:hidden"
-                    />
+                    <div className="md:hidden prose">
+                        <h2 className="mt-5">Ingredients</h2>
+                        <Ingredients ingredients={recipe.data.ingredients} />
+                    </div>
                     <Instructions instructions={recipe.data.instructions} />
                     <TipsAndTricks tips={recipe.data.tips} />
                     <Comments name={recipe.data.name} className="mt-5" />
                 </div>
-                <div className="md:w-1/3 hidden md:block">
-                    <Image
-                        src={recipe.image.src}
-                        width={400}
-                        height={200}
-                        alt={recipe.data.name}
-                        className="object-cover h-48 w-96 dark:opacity-50"
-                        placeholder="blur"
-                    />
-                    <Ingredients ingredients={recipe.data.ingredients} />
+                <div className="md:w-1/3 hidden md:block card">
+                    <figure>
+                        <Image
+                            src={recipe.image.src}
+                            width={400}
+                            height={200}
+                            alt={recipe.data.name}
+                            className="object-cover h-[16rem] w-[32rem] dark:opacity-60"
+                            placeholder="blur"
+                        />
+                    </figure>
+                    <div className="card-body px-2">
+                        <Ingredients ingredients={recipe.data.ingredients} />
+                    </div>
                 </div>
             </div>
         </article>
@@ -114,15 +123,13 @@ export default function Page({ params: { slug } }: Props): JSX.Element {
 
 function Ingredients({
     ingredients,
-    className,
 }: {
     ingredients: Recipe['data']['ingredients']
     className?: string
 }): JSX.Element {
     return (
-        <section className={className}>
-            <h2 className="mt-5 mb-3 text-xl">Ingredients</h2>
-            <ul className="list-none prose">
+        <section className="prose">
+            <ul className="list-none p-0">
                 {Object.entries(ingredients).map(([ingredient, quantity]) => (
                     <li key={ingredient}>
                         <label className="flex items-center">
@@ -146,15 +153,13 @@ function TipsAndTricks({
     }
 
     return (
-        <section>
-            <h2 className="mt-5 mb-3 text-xl">Tips & Tricks</h2>
-            <div className="prose">
-                <ul>
-                    {tips.map((v, i) => (
-                        <li key={i}>{v}</li>
-                    ))}
-                </ul>
-            </div>
+        <section className="prose">
+            <h2 className="mt-5">Tips & Tricks</h2>
+            <ul>
+                {tips.map((v, i) => (
+                    <li key={i}>{v}</li>
+                ))}
+            </ul>
         </section>
     )
 }
@@ -165,15 +170,13 @@ function Instructions({
     instructions: Recipe['data']['instructions']
 }): JSX.Element {
     return (
-        <section>
-            <h2 className="mt-5 mb-3 text-xl md:hidden">Instructions</h2>
-            <div className="prose">
-                <ol>
-                    {instructions.map((v, i) => (
-                        <li key={i}>{v}</li>
-                    ))}
-                </ol>
-            </div>
+        <section className="prose">
+            <h2 className="mt-5 md:hidden">Instructions</h2>
+            <ol>
+                {instructions.map((v, i) => (
+                    <li key={i}>{v}</li>
+                ))}
+            </ol>
         </section>
     )
 }

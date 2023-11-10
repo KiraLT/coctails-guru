@@ -18,16 +18,20 @@ export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
                             href={`/recipes/${recipe.slug}`}
                             className="card bg-base-100 shadow-xl"
                         >
-                            <figure><Image
-                                src={recipe.image.src}
-                                width={400}
-                                height={200}
-                                alt={recipe.data.name}
-                                placeholder="blur"
-                                className="object-cover h-48 w-96 dark:opacity-50"
-                            /></figure>
+                            <figure>
+                                <Image
+                                    src={recipe.image.src}
+                                    width={400}
+                                    height={200}
+                                    alt={recipe.data.name}
+                                    placeholder="blur"
+                                    className="object-cover h-[16rem] w-[32rem] dark:opacity-60"
+                                />
+                            </figure>
                             <div className="card-body items-center text-center p-4">
-                                <h2 className="card-title">{recipe.data.name}</h2>
+                                <h2 className="card-title">
+                                    {recipe.data.name}
+                                </h2>
                             </div>
                         </Link>
                     )

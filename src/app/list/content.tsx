@@ -8,7 +8,6 @@ import {
     getListUrl,
     replaceList,
 } from '@/controllers/lists'
-import { getAllRecipes } from '@/controllers/recipes'
 import { Share } from '@/components/share'
 import { Alert, Modal, Button } from 'react-daisyui'
 import { EditList } from '@/app/list/edit-list'

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     applicationName: 'Cocktails Guru',
     appleWebApp: {
         capable: true,
-        statusBarStyle: 'black-translucent'
+        statusBarStyle: 'black-translucent',
     },
     manifest: '/manifest.json',
     icons: {

@@ -12,11 +12,22 @@ export const metadata: Metadata = {
 }
 
 export default function Page(): JSX.Element {
-    const recipes = useMemo(() => sortBy(getAllRecipes(), v => v.data.labels?.includes('signature')), [])
+    const recipes = useMemo(
+        () =>
+            sortBy(
+                getAllRecipes(),
+                (v) => v.data.labels?.includes('signature'),
+            ),
+        [],
+    )
 
     return (
         <>
-            <h1 className="text-4xl mb-4">Signature Cocktails</h1>
+            <div className="prose">
+                <h1 className="text-3xl mb-4 font-medium">
+                    Signature Cocktails
+                </h1>
+            </div>
             {!!recipes.length && <Recipes recipes={recipes} />}
         </>
     )

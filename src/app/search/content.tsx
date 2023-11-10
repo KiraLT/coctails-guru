@@ -21,9 +21,11 @@ export default function Content(): JSX.Element {
 
     return (
         <>
-            <h1 className="text-4xl mb-4">
-                {query ? `Search for: ${query}` : 'All recipes'}
-            </h1>
+            <div className="prose">
+                <h1 className="text-3xl mb-4 font-medium">
+                    {query ? `Search for: ${query}` : 'All recipes'}
+                </h1>
+            </div>
             <Recipes recipes={result} />
         </>
     )

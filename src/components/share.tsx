@@ -1,13 +1,13 @@
 'use client'
-import { generateUUID } from 'common-stuff'
 import { QRCodeCanvas } from 'qrcode.react'
 import { useState } from 'react'
 import { useAsync } from 'react-async-hook'
+import { Button } from 'react-daisyui'
 
 export function Share() {
     const [copied, setCopied] = useState(false)
-    const id = `share-${generateUUID()}`
     const { result: url } = useAsync(async () => window.location.href, [])
+    const id = `share-${url}`
 
     return (
         <>
@@ -37,8 +37,10 @@ export function Share() {
             </div>
             <div className="flex flex-col items-center">
                 <QRCodeCanvas value={url ?? ''} size={264} id={id} />
-                <button
-                    className="btn btn-primary mt-5"
+                <Button
+                    className="mt-5"
+                    color="primary"
+                    variant="outline"
                     onClick={() => {
                         const canvas = document.getElementById(id)
                         console.log(canvas)
@@ -56,7 +58,7 @@ export function Share() {
                     }}
                 >
                     {'Download QR'}
-                </button>
+                </Button>
             </div>
         </>
     )
