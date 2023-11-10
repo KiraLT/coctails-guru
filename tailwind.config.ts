@@ -10,8 +10,8 @@ const config: Config = {
     ],
     plugins: [require('@tailwindcss/typography'), require('daisyui')],
     daisyui: {
-        themes: ['cupcake', 'night'],
-        darkTheme: 'night',
+        themes: ['cupcake', 'dark'],
+        darkTheme: 'dark',
         logs: false,
     },
 }

@@ -28,7 +28,7 @@ export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
                                     className="object-cover h-[16rem] w-[32rem] dark:opacity-60"
                                 />
                             </figure>
-                            <div className="card-body items-center text-center p-4">
+                            <div className="card-body items-center text-center p-4 bg-base-200">
                                 <h2 className="card-title">
                                     {recipe.data.name}
                                 </h2>
