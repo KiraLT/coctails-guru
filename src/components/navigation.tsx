@@ -6,6 +6,7 @@ import { Navbar, Menu, Dropdown } from 'react-daisyui'
 
 import logo from 'public/logo.svg'
 import Link from 'next/link'
+import { useRef } from 'react'
 
 const links = [
     {
@@ -21,6 +22,8 @@ const links = [
 ]
 
 export function Navigation(): JSX.Element {
+    const ref = useRef<HTMLDetailsElement>(null)
+
     return (
         <Navbar>
             <Navbar.Start className="hidden md:block">
@@ -46,19 +49,19 @@ export function Navigation(): JSX.Element {
                         </Menu.Item>
                     ))}
                 </Menu>
-                <Dropdown className="md:hidden">
-                    <Dropdown.Toggle
-                        className="btn btn-ghost rounded-btn text-2xl"
-                        button={false}
-                    >
+                <Dropdown.Details className="md:hidden ml-2" ref={ref}>
+                    <Dropdown.Details.Toggle className="text-2xl">
                         <FaBars />
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu className="w-100 mt-4 bg-base-300 z-50 !fixed inset-x-0">
+                    </Dropdown.Details.Toggle>
+                    <Dropdown.Menu className="w-100 mt-4 bg-base-300 z-50 !fixed inset-x-2.5">
                         {links.map((link) => (
                             <Menu.Item key={link.href}>
                                 <Link
                                     className="p-3 hover:text-blue-700"
                                     href={link.href}
+                                    onClick={() => {
+                                        ref.current?.removeAttribute('open')
+                                    }}
                                 >
                                     {link.icon}
                                     {link.name}
@@ -66,7 +69,7 @@ export function Navigation(): JSX.Element {
                             </Menu.Item>
                         ))}
                     </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown.Details>
             </Navbar.End>
         </Navbar>
     )
