@@ -14,7 +14,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'Cocktails Guru',
-    description: 'Cocktails Guru',
+    description:
+        'Welcome to our home of mixology, where Signature Cocktails take center stage. Explore our curated selection of exceptional cocktail recipes, discover new favorites, and master the art of cocktail creation. Step into a world of flavor and innovation today!',
     applicationName: 'Cocktails Guru',
     appleWebApp: {
         capable: true,
