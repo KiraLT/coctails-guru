@@ -1,6 +1,5 @@
 import { deduplicateBy, deduplicate } from 'common-stuff'
-import { Recipe } from '../recipes'
-import { recipes } from '../recipes/data'
+import { Recipe, getAllRecipes } from '../recipes'
 
 export interface List {
     name: string
@@ -58,6 +57,6 @@ export function replaceList(oldList: List, newList: List): void {
 
 export function getListRecipes(list: List): Recipe[] {
     return list.recipes.flatMap((recipeId) =>
-        recipes.filter((v) => v.slug === recipeId),
+        getAllRecipes().filter((v) => v.slug === recipeId),
     )
 }
