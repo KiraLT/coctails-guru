@@ -1,4 +1,5 @@
-import { Recipe, recipes } from './data'
+import { recipes } from './loader'
+import { Recipe } from './schema'
 export type { Recipe }
 
 export function getRecipeBySlug(slug: string): Recipe | undefined {
