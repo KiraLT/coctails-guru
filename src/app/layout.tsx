@@ -9,13 +9,12 @@ import icon256 from 'public/icon-256x256.png'
 
 import './globals.css'
 import { Navigation } from '@/components/navigation'
+import { WebSite } from 'schema-dts'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Cocktails Guru',
-    description:
-        'Welcome to our home of mixology, where Signature Cocktails take center stage. Explore our curated selection of exceptional cocktail recipes, discover new favorites, and master the art of cocktail creation. Step into a world of flavor and innovation today!',
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
     applicationName: 'Cocktails Guru',
     appleWebApp: {
         capable: true,
@@ -66,6 +65,24 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${inter.className} max-w-screen-lg mx-auto`}>
+                <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                '@type': 'WebSite',
+                                name: 'Cocktails Guru',
+                                url: process.env.NEXT_PUBLIC_SITE_URL,
+                                potentialAction: {
+                                    '@type': 'SearchAction',
+                                    target: `${process.env.NEXT_PUBLIC_SITE_URL}/search?q={search_term_string}`,
+                                    'query': 'required name=search_term_string',
+                                    
+                                }
+
+                            } satisfies WebSite),
+                        }}
+                />
+
                 <Navigation />
                 <main className="m-5 mt-2 md:m-0 md:mt-5">{children}</main>
 

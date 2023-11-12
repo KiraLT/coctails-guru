@@ -4,9 +4,12 @@ import Content from './content'
 import { FaPlus } from 'react-icons/fa6'
 
 export const metadata: Metadata = {
-    title: 'My lists',
+    title: 'My lists | Cocktails Guru',
     description:
         'Discover, explore, and manage your custom-made cocktail recipes with ease. Our "My Cocktail Lists" page allows you to access all your favorite cocktail creations in one place. Join us to add a dash of flavor to your mixology skills.',
+    robots: {
+        index: false
+    }
 }
 
 export default function Page(): JSX.Element {
