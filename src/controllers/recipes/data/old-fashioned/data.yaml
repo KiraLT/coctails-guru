@@ -7,9 +7,8 @@ instructions:
     - Add huge ice cube and pour whiskey over it. Stir for 20 seconds.
     - Run over the rim of the glass with an orange twist and drop it in. Add a cherry on top.
 ingredients:
-    simple syrup: 0.25
+    simple-syrup: 0.25
     whiskey: 2
-    sugar cube: 1
     bitter: 2
     orange bitter: 2
 tips:
