@@ -13,6 +13,11 @@ export interface RecipeProps {
             ingredients?: Record<string, number>
             instructions?: string[]
             tips?: string[]
+            recommended: {
+                name: string
+                url: string
+                description: string
+            }[]
         },
         image: {
             src: string
@@ -77,6 +82,7 @@ export function Recipe({ recipe }: RecipeProps): JSX.Element {
                     </div>}
                     {recipe.data.instructions && <Instructions instructions={recipe.data.instructions} />}
                     {recipe.data.tips && <TipsAndTricks tips={recipe.data.tips} />}
+                    {recipe.data.recommended && <Recommended recommended={recipe.data.recommended} />}
                     <Comments name={recipe.data.name} className="mt-5" />
                 </div>
                 <div className="md:w-1/3 hidden md:block card">
@@ -133,10 +139,6 @@ function TipsAndTricks({
 }: {
     tips: string[]
 }): JSX.Element {
-    if (!tips) {
-        return <div></div>
-    }
-
     return (
         <section className="prose">
             <h2 className="mt-5">Tips & Tricks</h2>
@@ -162,6 +164,31 @@ function Instructions({
                     <li key={i}>{v}</li>
                 ))}
             </ol>
+        </section>
+    )
+}
+
+function Recommended({
+    recommended,
+}: {
+    recommended: {
+        name: string
+        url: string
+        description: string
+    }[]
+}): JSX.Element {
+    return (
+        <section className="prose">
+            <h2 className="mt-5">Recommended</h2>
+            <ul>
+                {recommended.map((v) => (
+                    <li key={v.name}>
+                        <a href={v.url} rel="nofollow">{v.name}</a>
+                        {' - '}
+                        {v.description}
+                    </li>
+                ))}
+            </ul>
         </section>
     )
 }

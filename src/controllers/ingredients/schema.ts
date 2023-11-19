@@ -17,6 +17,11 @@ export const ingredientSchema = z.object({
         ingredients: z.record(z.number()).optional(),
         instructions: z.array(z.string()).optional(),
         tips: z.array(z.string()).optional(),
+        recommended: z.array(z.object({
+            url: z.string(),
+            name: z.string(),
+            description: z.string(),
+        })).optional()
     }).strict()
 }).strict()
 
