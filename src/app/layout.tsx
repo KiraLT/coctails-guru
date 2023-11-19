@@ -84,7 +84,7 @@ export default function RootLayout({
                 />
 
                 <Navigation />
-                <main className="m-5 mt-2 md:m-0 md:mt-5">{children}</main>
+                <main className="mx-5 my-2">{children}</main>
 
                 {!!process.env.NEXT_PUBLIC_GA_ID && (
                     <Script

@@ -25,18 +25,18 @@ export function Navigation(): JSX.Element {
     const ref = useRef<HTMLDetailsElement>(null)
 
     return (
-        <Navbar>
+        <Navbar className="px-5 py-2">
             <Navbar.Start className="hidden md:block">
                 <Link href="/">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="h-8 md:h-10" src={logo.src} alt="" />
+                    <img className="h-8 lg:h-10" src={logo.src} alt="" />
                 </Link>
             </Navbar.Start>
             <Navbar.Center className="grow">
                 <SearchBar />
             </Navbar.Center>
             <Navbar.End className="shrink w-auto">
-                <Menu className="hidden md:flex" horizontal={true}>
+                <Menu className="hidden lg:flex" horizontal={true}>
                     {links.map((link) => (
                         <Menu.Item key={link.href}>
                             <Link
@@ -49,7 +49,7 @@ export function Navigation(): JSX.Element {
                         </Menu.Item>
                     ))}
                 </Menu>
-                <Dropdown.Details className="md:hidden ml-2" ref={ref}>
+                <Dropdown.Details className="lg:hidden ml-2" ref={ref}>
                     <Dropdown.Details.Toggle className="text-2xl">
                         <FaBars />
                     </Dropdown.Details.Toggle>
