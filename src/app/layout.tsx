@@ -66,21 +66,19 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${inter.className} max-w-screen-lg mx-auto`}>
                 <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{
-                            __html: JSON.stringify({
-                                '@type': 'WebSite',
-                                name: 'Cocktails Guru',
-                                url: process.env.NEXT_PUBLIC_SITE_URL,
-                                potentialAction: {
-                                    '@type': 'SearchAction',
-                                    target: `${process.env.NEXT_PUBLIC_SITE_URL}/search?q={search_term_string}`,
-                                    'query': 'required name=search_term_string',
-                                    
-                                }
-
-                            } satisfies WebSite),
-                        }}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@type': 'WebSite',
+                            name: 'Cocktails Guru',
+                            url: process.env.NEXT_PUBLIC_SITE_URL,
+                            potentialAction: {
+                                '@type': 'SearchAction',
+                                target: `${process.env.NEXT_PUBLIC_SITE_URL}/search?q={search_term_string}`,
+                                query: 'required name=search_term_string',
+                            },
+                        } satisfies WebSite),
+                    }}
                 />
 
                 <Navigation />

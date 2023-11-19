@@ -135,20 +135,16 @@ export default function Offline() {
                         </g>
                         <defs>
                             <clipPath id="clip0">
-                                <rect
-                                    width="450"
-                                    height="338"
-                                    fill="white"
-                                />
+                                <rect width="450" height="338" fill="white" />
                             </clipPath>
                         </defs>
                     </svg>
                 </div>
                 <p className="text-sm md:text-base text-secondary p-2 mb-4">
-                    {'You aren\'t connected to a working internet connection'}
+                    {"You aren't connected to a working internet connection"}
                 </p>
                 <button
-                    className='btn btn-primary btn-outline' 
+                    className="btn btn-primary btn-outline"
                     onClick={() => {
                         window.location.reload()
                     }}

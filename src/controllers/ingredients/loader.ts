@@ -31,12 +31,11 @@ export const ingredients = groupBy(
         }
     }),
     (v) => v.slug,
-)
-    .map(([slug, values]) => {
-        return ingredientSchema.parse({
-            slug,
-            data: values.find((v) => v.type === 'recipe')?.data,
-            image: values.find((v) => v.type === 'image')
-                ?.data as Ingredient['image'],
-        })
+).map(([slug, values]) => {
+    return ingredientSchema.parse({
+        slug,
+        data: values.find((v) => v.type === 'recipe')?.data,
+        image: values.find((v) => v.type === 'image')
+            ?.data as Ingredient['image'],
     })
+})

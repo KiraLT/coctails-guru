@@ -31,12 +31,10 @@ export const recipes = groupBy(
         }
     }),
     (v) => v.slug,
-)
-    .map(([slug, values]) => {
-        return recipeSchema.parse({
-            slug,
-            data: values.find((v) => v.type === 'recipe')?.data,
-            image: values.find((v) => v.type === 'image')
-                ?.data as Recipe['image'],
-        })
+).map(([slug, values]) => {
+    return recipeSchema.parse({
+        slug,
+        data: values.find((v) => v.type === 'recipe')?.data,
+        image: values.find((v) => v.type === 'image')?.data as Recipe['image'],
     })
+})

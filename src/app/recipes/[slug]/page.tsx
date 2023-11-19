@@ -1,8 +1,5 @@
 import { useMemo } from 'react'
-import {
-    getAllRecipes,
-    getRecipeBySlug,
-} from '@/controllers/recipes'
+import { getAllRecipes, getRecipeBySlug } from '@/controllers/recipes'
 import { Metadata } from 'next/types'
 import { Recipe } from '@/components/recipe'
 
@@ -39,5 +36,5 @@ export async function generateMetadata({
 
 export default function Page({ params: { slug } }: Props): JSX.Element {
     const recipe = useMemo(() => getRecipeBySlug(slug)!, [slug])
-    return <Recipe recipe={recipe}/>
+    return <Recipe recipe={recipe} />
 }

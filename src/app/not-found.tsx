@@ -6,7 +6,7 @@ export const metedata: Metadata = {
     description: 'Page not found',
     robots: {
         index: false,
-    }
+    },
 }
 
 export default function NotFound() {
