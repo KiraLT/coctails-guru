@@ -211,7 +211,7 @@ function Recommended({
             <ul>
                 {recommended.map((v) => (
                     <li key={v.name}>
-                        <a href={v.url} rel="nofollow">
+                        <a href={v.url} rel="nofollow noopener" target="_blank">
                             {v.name}
                         </a>
                         {' - '}
