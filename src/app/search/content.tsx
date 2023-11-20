@@ -10,7 +10,24 @@ export default function Content(): JSX.Element {
     const recipes = useMemo(() => getAllRecipes(), [])
     const fuse = useMemo(() => {
         return new Fuse(recipes, {
-            keys: ['data.name'],
+            keys: [
+                {
+                    name: 'name',
+                    weight: 3,
+                    getFn: v => v.data.name
+                },
+                {
+                    name: 'data.ingredients',
+                    weight: 2,
+                    getFn: v => Object.keys(v.data.ingredients).join(' ')
+                },
+                {
+                    name: 'description',
+                    weight: 1,
+                    getFn: v => v.data.description ?? ''
+                }
+            ],
+            threshold: 0.3
         })
     }, [recipes])
     const query = searchParams.get('q')
