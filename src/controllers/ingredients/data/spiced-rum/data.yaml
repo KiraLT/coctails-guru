@@ -1,0 +1,16 @@
+name: Spiced Rum
+description: >
+    Spiced rums obtain their flavors through the addition of spices and, sometimes, caramel.
+    Most are darker in colour, and based on gold rums.
+    Some are significantly darker, while many cheaper brands are made from inexpensive white rums and darkened with caramel colour.
+    Among the spices added are cinnamon, rosemary, absinthe/aniseed, pepper, cloves, and cardamom.
+recommended:
+    - name: Goslings Black Seal Rum
+      url: https://www.goslingsrum.com/newProduct/goslings-black-seal-rum/
+      description: The original Dark 'n' Stormy Spiced Rum.
+    - name: Kraken Black Spiced Rum
+      url: https://www.krakenrum.com/products/original/
+      description: A bold, rich blend of exotic spices creates a smooth, dark rum with hints of vanilla, caramel, and distinctive spices.
+    - name: Captain Morgan Black Spiced Rum
+      url: https://www.captainmorgan.com/en-us/products/captain-morgan-black-spiced-rum/
+      description: Budget friendly, and a great mixer.
