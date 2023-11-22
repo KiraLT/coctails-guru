@@ -2,7 +2,7 @@
 import { QRCodeCanvas } from 'qrcode.react'
 import { useState } from 'react'
 import { useAsync } from 'react-async-hook'
-import { Button } from 'react-daisyui'
+import { Button, Alert, Join, Input } from 'react-daisyui'
 
 export function Share() {
     const [copied, setCopied] = useState(false)
@@ -11,31 +11,27 @@ export function Share() {
 
     return (
         <>
-            <div className="mb-2 alert alert-info">
+            <Alert status="info" className="mb-2">
                 You can safely share this link to the list
-            </div>
-            <div className="form-control">
-                <div className="input-group">
-                    <input
-                        type="text"
-                        disabled={true}
-                        value={url ?? ''}
-                        className="input w-full"
-                    />
-                    <button
-                        className={`btn btn-square ${
-                            copied ? 'btn-success' : ''
-                        }`}
-                        onClick={() => {
-                            navigator.clipboard.writeText(url ?? '')
-                            setCopied(true)
-                        }}
-                    >
-                        Copy
-                    </button>
-                </div>
-            </div>
-            <div className="flex flex-col items-center">
+            </Alert>
+            <Join className="w-full">
+                <Input
+                    disabled={true}
+                    value={url ?? ''}
+                    className="join-item w-full"
+                />
+                <Button
+                    className="join-item"
+                    color={'neutral'}
+                    onClick={() => {
+                        navigator.clipboard.writeText(url ?? '')
+                        setCopied(true)
+                    }}
+                >
+                    {copied ? 'Copied' : 'Copy'}
+                </Button>
+            </Join>
+            <div className="flex flex-col items-center mt-3">
                 <QRCodeCanvas value={url ?? ''} size={264} id={id} />
                 <Button
                     className="mt-5"
