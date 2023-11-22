@@ -18,7 +18,7 @@ export const ingredientSchema = z
                 name: z.string(),
                 unit: z.string().optional(),
                 description: z.string().optional(),
-                ingredients: z.record(z.number()).optional(),
+                ingredients: z.record(z.string()).optional(),
                 instructions: z.array(z.string()).optional(),
                 tips: z.array(z.string()).optional(),
                 recommended: z
