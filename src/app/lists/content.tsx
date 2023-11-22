@@ -12,14 +12,14 @@ export default function Content(): JSX.Element {
     return (
         <>
             {!lists.loading && !lists.result?.length && (
-                <Alert status="info" icon=<FaCircleInfo />>
+                <Alert status="info" icon={<FaCircleInfo />}>
                     {"You don't have any list"}
                 </Alert>
             )}
 
             {lists.result?.map((v) => (
-                <ul key={v.name} className="text-sm font-medium divide-y">
-                    <li className="flex justify-between items-center my-2 border-primary-content">
+                <div key={v.name} className="text-sm font-medium divide-y grid grid-cols-1">
+                    <div className="flex justify-between items-center my-2">
                         <div>
                             <Link href={getListUrl(v)}>
                                 <span className="text-truncate">
@@ -41,8 +41,8 @@ export default function Content(): JSX.Element {
                         >
                             <div className="hidden md:block">Delete</div>
                         </Button>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             ))}
         </>
     )

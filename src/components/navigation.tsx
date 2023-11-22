@@ -1,6 +1,12 @@
 'use client'
 
-import { FaMagnifyingGlass, FaBars, FaHouse, FaList, FaGithub } from 'react-icons/fa6'
+import {
+    FaMagnifyingGlass,
+    FaBars,
+    FaHouse,
+    FaList,
+    FaGithub,
+} from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import { Navbar, Menu, Dropdown } from 'react-daisyui'
 
@@ -22,8 +28,8 @@ const links = [
     {
         name: 'GitHub',
         href: 'https://github.com/KiraLT/cocktails-guru',
-        icon: <FaGithub/>
-    }
+        icon: <FaGithub />,
+    },
 ]
 
 export function Navigation(): JSX.Element {

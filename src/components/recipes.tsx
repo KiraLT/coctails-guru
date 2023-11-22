@@ -9,7 +9,7 @@ export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
     return (
         <>
             {!recipes?.length && (
-                <Alert status="info" icon=<FaCircleInfo />>
+                <Alert status="info" icon={<FaCircleInfo />}>
                     {'No recipes were found'}
                 </Alert>
             )}
