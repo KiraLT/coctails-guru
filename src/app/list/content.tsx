@@ -60,7 +60,9 @@ export default function Content(): JSX.Element {
                 </div>
             </div>
             {!list.recipes.length && (
-                <Alert color="info" icon={<FaCircleInfo/>}>List is empty, add recipes to it</Alert>
+                <Alert color="info" icon={<FaCircleInfo />}>
+                    List is empty, add recipes to it
+                </Alert>
             )}
             {!!list.recipes.length && <Recipes recipes={recipes} />}
             <shareDialog.Dialog backdrop={true}>

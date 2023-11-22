@@ -12,7 +12,7 @@ export default function Content(): JSX.Element {
     return (
         <>
             {!lists.loading && !lists.result?.length && (
-                <Alert status="info" icon=<FaCircleInfo/>>
+                <Alert status="info" icon=<FaCircleInfo />>
                     {"You don't have any list"}
                 </Alert>
             )}

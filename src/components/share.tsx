@@ -12,7 +12,7 @@ export function Share() {
 
     return (
         <>
-            <Alert status="info" className="mb-2" icon=<FaCircleInfo/>>
+            <Alert status="info" className="mb-2" icon=<FaCircleInfo />>
                 You can safely share this link to the list
             </Alert>
             <Join className="w-full">

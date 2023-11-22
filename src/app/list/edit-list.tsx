@@ -141,7 +141,9 @@ function AddView({
                 </ul>
             )}
             {!result.length && (
-                <Alert color="info" icon=<FaCircleInfo/>>No recipes were found</Alert>
+                <Alert color="info" icon=<FaCircleInfo />>
+                    No recipes were found
+                </Alert>
             )}
         </div>
     )
@@ -199,7 +201,9 @@ function EditView({
                 </ul>
             )}
             {!recipes.length && (
-                <Alert color="info" icon=<FaCircleInfo/>>List is empty, add recipes to it</Alert>
+                <Alert color="info" icon=<FaCircleInfo />>
+                    List is empty, add recipes to it
+                </Alert>
             )}
         </>
     )

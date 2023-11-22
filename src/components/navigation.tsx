@@ -1,6 +1,6 @@
 'use client'
 
-import { FaMagnifyingGlass, FaBars, FaHouse, FaList } from 'react-icons/fa6'
+import { FaMagnifyingGlass, FaBars, FaHouse, FaList, FaGithub } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import { Navbar, Menu, Dropdown } from 'react-daisyui'
 
@@ -19,6 +19,11 @@ const links = [
         href: '/lists',
         icon: <FaList />,
     },
+    {
+        name: 'GitHub',
+        href: 'https://github.com/KiraLT/cocktails-guru',
+        icon: <FaGithub/>
+    }
 ]
 
 export function Navigation(): JSX.Element {
@@ -26,7 +31,7 @@ export function Navigation(): JSX.Element {
 
     return (
         <Navbar className="px-5 py-2">
-            <Navbar.Start className="hidden md:block">
+            <Navbar.Start className="hidden md:block w-auto grow">
                 <Link href="/">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img className="h-8 lg:h-10" src={logo.src} alt="" />
@@ -39,13 +44,25 @@ export function Navigation(): JSX.Element {
                 <Menu className="hidden lg:flex" horizontal={true}>
                     {links.map((link) => (
                         <Menu.Item key={link.href}>
-                            <Link
-                                className="p-3 hover:text-blue-700"
-                                href={link.href}
-                            >
-                                {link.icon}
-                                {link.name}
-                            </Link>
+                            {link.href.startsWith('/') ? (
+                                <Link
+                                    className="p-3 hover:text-blue-700"
+                                    href={link.href}
+                                >
+                                    {link.icon}
+                                    {link.name}
+                                </Link>
+                            ) : (
+                                <a
+                                    className="p-3 hover:text-blue-700"
+                                    href={link.href}
+                                    rel="nofollow noopener"
+                                    target="_blank"
+                                >
+                                    {link.icon}
+                                    {link.name}
+                                </a>
+                            )}
                         </Menu.Item>
                     ))}
                 </Menu>
@@ -56,16 +73,28 @@ export function Navigation(): JSX.Element {
                     <Dropdown.Menu className="w-100 mt-4 bg-base-300 z-50 !fixed inset-x-2.5">
                         {links.map((link) => (
                             <Menu.Item key={link.href}>
-                                <Link
-                                    className="p-3 hover:text-blue-700"
-                                    href={link.href}
-                                    onClick={() => {
-                                        ref.current?.removeAttribute('open')
-                                    }}
-                                >
-                                    {link.icon}
-                                    {link.name}
-                                </Link>
+                                {link.href.startsWith('/') ? (
+                                    <Link
+                                        className="p-3 hover:text-blue-700"
+                                        href={link.href}
+                                        onClick={() => {
+                                            ref.current?.removeAttribute('open')
+                                        }}
+                                    >
+                                        {link.icon}
+                                        {link.name}
+                                    </Link>
+                                ) : (
+                                    <a
+                                        className="p-3 hover:text-blue-700"
+                                        href={link.href}
+                                        rel="nofollow noopener"
+                                        target="_blank"
+                                    >
+                                        {link.icon}
+                                        {link.name}
+                                    </a>
+                                )}
                             </Menu.Item>
                         ))}
                     </Dropdown.Menu>
