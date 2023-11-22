@@ -10,7 +10,7 @@ export interface RecipeProps {
         data: {
             name: string
             description?: string
-            ingredients?: Record<string, number>
+            ingredients?: Record<string, string>
             instructions?: string[]
             tips?: string[]
             recommended?: {
@@ -122,7 +122,7 @@ export function Recipe({ recipe }: RecipeProps): JSX.Element {
 function Ingredients({
     ingredients,
 }: {
-    ingredients: Record<string, number>
+    ingredients: Record<string, string>
     className?: string
 }): JSX.Element {
     return (
