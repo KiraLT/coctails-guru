@@ -150,7 +150,9 @@ function Ingredients({
                                     </>
                                 ) : (
                                     <>
-                                        {`${quantity} ${titleCase(slug.split('-').join(' '))}`}
+                                        {`${quantity} ${titleCase(
+                                            slug.split('-').join(' '),
+                                        )}`}
                                     </>
                                 )}
                             </label>
