@@ -3,6 +3,7 @@ import { QRCodeCanvas } from 'qrcode.react'
 import { useState } from 'react'
 import { useAsync } from 'react-async-hook'
 import { Button, Alert, Join, Input } from 'react-daisyui'
+import { FaCircleInfo } from 'react-icons/fa6'
 
 export function Share() {
     const [copied, setCopied] = useState(false)
@@ -11,7 +12,7 @@ export function Share() {
 
     return (
         <>
-            <Alert status="info" className="mb-2">
+            <Alert status="info" className="mb-2" icon=<FaCircleInfo/>>
                 You can safely share this link to the list
             </Alert>
             <Join className="w-full">

@@ -2,7 +2,7 @@ import { List, getListRecipes } from '@/controllers/lists'
 import { Recipe, getAllRecipes } from '@/controllers/recipes'
 import Fuse from 'fuse.js'
 import { useState, useMemo } from 'react'
-import { FaBars, FaTrashCan } from 'react-icons/fa6'
+import { FaBars, FaCircleInfo, FaTrashCan } from 'react-icons/fa6'
 import { ReactSortable } from 'react-sortablejs'
 import { Button, Input, Alert } from 'react-daisyui'
 
@@ -63,7 +63,7 @@ export function EditList({
                         className="mb-3 w-full"
                         onClick={() => setAddMode(true)}
                     >
-                        Add recipe
+                        Add Recipe
                     </Button>
                     <EditView
                         recipes={listRecipes}
@@ -141,7 +141,7 @@ function AddView({
                 </ul>
             )}
             {!result.length && (
-                <Alert color="info">No recipes were found</Alert>
+                <Alert color="info" icon=<FaCircleInfo/>>No recipes were found</Alert>
             )}
         </div>
     )
@@ -199,7 +199,7 @@ function EditView({
                 </ul>
             )}
             {!recipes.length && (
-                <Alert color="info">List is empty, add recipes to it</Alert>
+                <Alert color="info" icon=<FaCircleInfo/>>List is empty, add recipes to it</Alert>
             )}
         </>
     )

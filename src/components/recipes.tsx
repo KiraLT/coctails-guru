@@ -1,14 +1,17 @@
+'use client'
 import { Recipe } from '@/controllers/recipes'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Alert } from 'react-daisyui'
+import { FaCircleInfo } from 'react-icons/fa6'
 
 export function Recipes({ recipes }: { recipes: Recipe[] }): JSX.Element {
     return (
         <>
             {!recipes?.length && (
-                <div className="alert alert-info">
+                <Alert status="info" icon=<FaCircleInfo/>>
                     {'No recipes were found'}
-                </div>
+                </Alert>
             )}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {recipes.map((recipe) => {

@@ -3,8 +3,8 @@
 import { getAllLists, getListUrl, deleteListByName } from '@/controllers/lists'
 import Link from 'next/link'
 import { useAsync } from 'react-async-hook'
-import { Button } from 'react-daisyui'
-import { FaTrashCan } from 'react-icons/fa6'
+import { Button, Alert } from 'react-daisyui'
+import { FaCircleInfo, FaTrashCan } from 'react-icons/fa6'
 
 export default function Content(): JSX.Element {
     const lists = useAsync(async () => getAllLists(), [])
@@ -12,9 +12,9 @@ export default function Content(): JSX.Element {
     return (
         <>
             {!lists.loading && !lists.result?.length && (
-                <div className="alert alert-info">
+                <Alert status="info" icon=<FaCircleInfo/>>
                     {"You don't have any list"}
-                </div>
+                </Alert>
             )}
 
             {lists.result?.map((v) => (

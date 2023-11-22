@@ -11,7 +11,7 @@ import {
 import { Share } from '@/components/share'
 import { Alert, Modal, Button } from 'react-daisyui'
 import { EditList } from '@/app/list/edit-list'
-import { FaShareFromSquare, FaPenToSquare } from 'react-icons/fa6'
+import { FaShareFromSquare, FaPenToSquare, FaCircleInfo } from 'react-icons/fa6'
 
 export default function Content(): JSX.Element {
     const router = useRouter()
@@ -60,7 +60,7 @@ export default function Content(): JSX.Element {
                 </div>
             </div>
             {!list.recipes.length && (
-                <Alert color="info">List is empty, add recipes to it</Alert>
+                <Alert color="info" icon={<FaCircleInfo/>}>List is empty, add recipes to it</Alert>
             )}
             {!!list.recipes.length && <Recipes recipes={recipes} />}
             <shareDialog.Dialog backdrop={true}>
