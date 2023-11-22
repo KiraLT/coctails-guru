@@ -31,7 +31,7 @@ export default function Content(): JSX.Element {
     return (
         <>
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-xl md:text-4xl">
+                <h1 className="text-xl md:text-3xl">
                     {list.name || 'Unnamed list'}
                 </h1>
                 <div className="whitespace-nowrap ml-2">
