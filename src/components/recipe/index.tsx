@@ -1,9 +1,8 @@
 import { titleCase } from 'common-stuff'
 import { Recipe } from 'schema-dts'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Comments } from './comments'
-import { getIngredientBySlug } from '@/controllers/ingredients'
+import { Comments } from '@/components/comments'
+import { Ingredients } from './ingredients'
 
 export interface RecipeProps {
     recipe: {
@@ -79,21 +78,28 @@ export function Recipe({ recipe }: RecipeProps): JSX.Element {
                         )}
                     </section>
                     {recipe.data.ingredients && (
-                        <div className="md:hidden prose">
-                            <h2 className="mt-5">Ingredients</h2>
-                            <Ingredients
-                                ingredients={recipe.data.ingredients}
-                            />
-                        </div>
+                        <Ingredients
+                            ingredients={recipe.data.ingredients}
+                            className="mt-5 md:hidden"
+                        />
                     )}
                     {recipe.data.instructions && (
-                        <Instructions instructions={recipe.data.instructions} />
+                        <Instructions
+                            instructions={recipe.data.instructions}
+                            className="mt-5"
+                        />
                     )}
                     {recipe.data.tips && (
-                        <TipsAndTricks tips={recipe.data.tips} />
+                        <TipsAndTricks
+                            tips={recipe.data.tips}
+                            className="mt-5"
+                        />
                     )}
                     {recipe.data.recommended && (
-                        <Recommended recommended={recipe.data.recommended} />
+                        <Recommended
+                            recommended={recipe.data.recommended}
+                            className="mt-5"
+                        />
                     )}
                     <Comments name={recipe.data.name} className="mt-5" />
                 </div>
@@ -119,55 +125,16 @@ export function Recipe({ recipe }: RecipeProps): JSX.Element {
     )
 }
 
-function Ingredients({
-    ingredients,
+function TipsAndTricks({
+    tips,
+    className,
 }: {
-    ingredients: Record<string, string>
+    tips: string[]
     className?: string
 }): JSX.Element {
     return (
-        <section className="prose">
-            <ul className="list-none p-0">
-                {Object.entries(ingredients).map(([slug, quantity]) => {
-                    const ingredient = getIngredientBySlug(slug)
-
-                    return (
-                        <li key={slug}>
-                            <label className="flex items-center">
-                                <input
-                                    type="checkbox"
-                                    className="checkbox mr-2"
-                                />
-                                {ingredient ? (
-                                    <>
-                                        {quantity}
-                                        <Link
-                                            href={`/ingredients/${slug}`}
-                                            className="ml-1"
-                                        >
-                                            {ingredient.data.name}
-                                        </Link>
-                                    </>
-                                ) : (
-                                    <>
-                                        {`${quantity} ${titleCase(
-                                            slug.split('-').join(' '),
-                                        )}`}
-                                    </>
-                                )}
-                            </label>
-                        </li>
-                    )
-                })}
-            </ul>
-        </section>
-    )
-}
-
-function TipsAndTricks({ tips }: { tips: string[] }): JSX.Element {
-    return (
-        <section className="prose">
-            <h2 className="mt-5">Tips & Tricks</h2>
+        <section className={`prose ${className ?? ''}`}>
+            <h3>Tips & Tricks</h3>
             <ul>
                 {tips.map((v, i) => (
                     <li key={i}>{v}</li>
@@ -179,12 +146,14 @@ function TipsAndTricks({ tips }: { tips: string[] }): JSX.Element {
 
 function Instructions({
     instructions,
+    className,
 }: {
     instructions: string[]
+    className?: string
 }): JSX.Element {
     return (
-        <section className="prose">
-            <h2 className="mt-5 md:hidden">Instructions</h2>
+        <section className={`prose ${className ?? ''}`}>
+            <h3>Instructions</h3>
             <ol>
                 {instructions.map((v, i) => (
                     <li key={i}>{v}</li>
@@ -196,16 +165,18 @@ function Instructions({
 
 function Recommended({
     recommended,
+    className,
 }: {
     recommended: {
         name: string
         url: string
         description: string
     }[]
+    className?: string
 }): JSX.Element {
     return (
-        <section className="prose">
-            <h2 className="mt-5">Recommended</h2>
+        <section className={`prose ${className ?? ''}`}>
+            <h3>Recommended</h3>
             <ul>
                 {recommended.map((v) => (
                     <li key={v.name}>

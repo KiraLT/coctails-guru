@@ -18,7 +18,10 @@ export default function Content(): JSX.Element {
             )}
 
             {lists.result?.map((v) => (
-                <div key={v.name} className="text-sm font-medium divide-y grid grid-cols-1">
+                <div
+                    key={v.name}
+                    className="text-sm font-medium divide-y grid grid-cols-1"
+                >
                     <div className="flex justify-between items-center my-2">
                         <div>
                             <Link href={getListUrl(v)}>
