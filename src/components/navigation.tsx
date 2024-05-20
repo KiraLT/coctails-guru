@@ -1,5 +1,4 @@
 'use client'
-
 import {
     FaMagnifyingGlass,
     FaBars,
@@ -9,10 +8,10 @@ import {
 } from 'react-icons/fa6'
 import { useRouter } from 'next/navigation'
 import { Navbar, Menu, Dropdown } from 'react-daisyui'
-
-import logo from 'public/logo.svg'
 import Link from 'next/link'
 import { useRef } from 'react'
+import logo from '../../public/logo.svg'
+import Image from 'next-export-optimize-images/image'
 
 const links = [
     {
@@ -39,8 +38,13 @@ export function Navigation(): JSX.Element {
         <Navbar className="px-5 py-2">
             <Navbar.Start className="hidden md:block w-auto grow">
                 <Link href="/">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="h-8 lg:h-10" src={logo.src} alt="" />
+                    <Image
+                        className="h-8 lg:h-10"
+                        src={logo.src}
+                        width={120}
+                        height={50}
+                        alt=""
+                    />
                 </Link>
             </Navbar.Start>
             <Navbar.Center className="grow">

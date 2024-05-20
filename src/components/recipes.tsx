@@ -1,6 +1,6 @@
 'use client'
 import { Recipe } from '@/controllers/recipes'
-import Image from 'next/image'
+import Image from 'next-export-optimize-images/image'
 import Link from 'next/link'
 import { Alert } from 'react-daisyui'
 import { FaCircleInfo } from 'react-icons/fa6'

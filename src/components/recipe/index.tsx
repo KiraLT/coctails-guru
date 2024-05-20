@@ -1,6 +1,6 @@
 import { titleCase } from 'common-stuff'
-import { Recipe } from 'schema-dts'
-import Image from 'next/image'
+import type * as Schema from 'schema-dts'
+import Image from 'next-export-optimize-images/image'
 import { Comments } from '@/components/comments'
 import { Ingredients } from './ingredients'
 
@@ -51,7 +51,7 @@ export function Recipe({ recipe }: RecipeProps): JSX.Element {
                                     text: v,
                                 }),
                             ),
-                        } satisfies Recipe),
+                        } satisfies Schema.Recipe),
                     }}
                 />
             )}

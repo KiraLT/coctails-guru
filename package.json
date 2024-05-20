@@ -2,54 +2,60 @@
     "name": "drinks",
     "version": "1.0.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "dev": "next dev",
-        "build": "next build && next-export-optimize-images && next-sitemap",
+        "build": "next build && next-export-optimize-images && next-sitemap --config next-sitemap.config.mjs",
         "start": "npx serve out",
         "lint": "next lint",
         "prettify": "prettier --write \"**/*.{js,ts,tsx,json,css,scss,yaml}\""
     },
     "dependencies": {
-        "common-stuff": "^1.10.3",
+        "common-stuff": "^1.11.0",
         "disqus-react": "^1.1.5",
         "fuse.js": "^7.0.0",
-        "next": "13.4.19",
+        "next": "14.2.3",
         "next-pwa": "^5.6.0",
+        "prop-types": "^15.8.1",
         "qrcode.react": "^3.1.0",
-        "react": "18.2.0",
+        "react": "18.3.1",
         "react-async-hook": "^4.0.0",
         "react-daisyui": "^5.0.0",
-        "react-dom": "18.2.0",
-        "react-icons": "^4.12.0",
+        "react-dom": "18.3.1",
+        "react-icons": "^5.2.1",
         "react-sortablejs": "^6.1.4",
-        "sortablejs": "^1.15.1",
-        "zod": "^3.22.4",
-        "zustand": "^4.4.7"
+        "sortablejs": "^1.15.2",
+        "zod": "^3.23.8",
+        "zustand": "^4.5.2"
     },
     "devDependencies": {
-        "@tailwindcss/typography": "^0.5.10",
+        "@tailwindcss/typography": "^0.5.13",
         "@types/js-yaml": "^4.0.9",
-        "@types/react": "^18.2.43",
-        "@types/react-dom": "^18.2.17",
-        "@types/sortablejs": "^1.15.7",
-        "autoprefixer": "^10.4.16",
-        "daisyui": "^4.4.19",
-        "eslint": "^8.55.0",
-        "eslint-config-next": "^14.0.4",
-        "next-export-optimize-images": "^3.2.0",
+        "@types/react": "^18.3.2",
+        "@types/react-dom": "^18.3.0",
+        "@types/sortablejs": "^1.15.8",
+        "autoprefixer": "^10.4.19",
+        "daisyui": "^4.11.1",
+        "next-export-optimize-images": "^4.4.0",
         "next-plugin-yaml": "^1.0.1",
         "next-sitemap": "^4.2.3",
-        "prettier": "^3.1.0",
+        "prettier": "^3.2.5",
         "schema-dts": "^1.1.2",
-        "sharp": "^0.33.0",
-        "tailwindcss": "3.3.6",
-        "typescript": "5.3.3"
+        "sharp": "^0.33.4",
+        "tailwindcss": "3.4.3",
+        "typescript": "5.4.5"
     },
     "prettier": {
         "semi": false,
         "singleQuote": true
     },
-    "eslintConfig": {
-        "extends": "next/core-web-vitals"
+    "browserslist": [
+        "defaults"
+    ],
+    "postcss": {
+        "plugins": {
+            "tailwindcss": {},
+            "autoprefixer": {}
+        }
     }
 }

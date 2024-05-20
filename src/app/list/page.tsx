@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Content from './content'
+import { Suspense } from 'react'
 
 export const metadata: Metadata = {
     title: 'Create/edit list',
@@ -12,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function Page(): JSX.Element {
     return (
-        <>
+        <Suspense>
             <Content />
-        </>
+        </Suspense>
     )
 }

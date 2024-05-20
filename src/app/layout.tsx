@@ -1,11 +1,11 @@
 import Script from 'next/script'
 import { Inter } from 'next/font/google'
-import { Metadata } from 'next/types'
+import type { Metadata, Viewport } from 'next/types'
 
-import icon16 from 'public/icon-16x16.png'
-import icon32 from 'public/icon-32x32.png'
-import icon192 from 'public/icon-192x192.png'
-import icon256 from 'public/icon-256x256.png'
+import icon16 from '../../public/icon-16x16.png'
+import icon32 from '../../public/icon-32x32.png'
+import icon192 from '../../public/icon-192x192.png'
+import icon256 from '../../public/icon-256x256.png'
 
 import './globals.css'
 import { Navigation } from '@/components/navigation'
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
         shortcut: '/favicon.ico',
         icon: [
             {
-                url: icon32.src,
-                sizes: '32x32',
+                url: icon16.src,
+                sizes: '16x16',
                 type: 'image/png',
             },
             {
-                url: icon16.src,
-                sizes: '16x16',
+                url: icon32.src,
+                sizes: '32x32',
                 type: 'image/png',
             },
         ],
@@ -48,13 +48,14 @@ export const metadata: Metadata = {
             },
         ],
     },
-    viewport: {
-        minimumScale: 1,
-        initialScale: 1,
-        width: 'device-width',
-        userScalable: false,
-        viewportFit: 'cover',
-    },
+}
+
+export const viewport: Viewport = {
+    minimumScale: 1,
+    initialScale: 1,
+    width: 'device-width',
+    userScalable: false,
+    viewportFit: 'cover',
 }
 
 export default function RootLayout({
@@ -95,7 +96,7 @@ export default function RootLayout({
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
-                
+
                         gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
                     `}
                     </Script>
